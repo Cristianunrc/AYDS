@@ -40,15 +40,15 @@ body {
    }
 
    input[type="submit"] {
-    background-color:#fff;
-    border:1px solid #333;
-    border-radius:4px;
-    color:#333;
-    cursor:pointer;
-    font-size:16px;
-    padding:10px 20px;
-    box-shadow:none;
-    transition:none;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 20px;
+    box-shadow: none;
+    transition: none;
    }
 
    input[type="submit"]:hover {
