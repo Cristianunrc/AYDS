@@ -2,7 +2,7 @@
 ActiveRecord::Base.connection.execute('PRAGMA foreign_keys = OFF;')
 if ENV['RACK_ENV'] == 'development'
   # Eliminar los registros existentes antes de crear nuevos
-  [Choice, Answer, Question, Difficulty].each(&:destroy_all)
+  [Choice, Answer, Question, Difficulty, User].each(&:destroy_all)
 end
 ActiveRecord::Base.connection.execute('PRAGMA foreign_keys = ON;')
 
@@ -560,7 +560,7 @@ Question.transaction do
 
   Answer.create!(
     question: autocomplete_pri_1,
-    answers_autocomplete: ["1946", "mil novecientos cuarenta y seis", "Mil novecientos cuarenta y seis"]
+    answers_autocomplete: ["1946"]
   )
 
   # Pregunta 2
@@ -572,19 +572,19 @@ Question.transaction do
 
   Answer.create!(
     question: autocomplete_pri_2,
-    answers_autocomplete: ["1983", "mil novecientos ochenta y tres", "Mil novecientos ochenta y tres"]
+    answers_autocomplete: ["1983"]
   )
 
   # Pregunta 3
   autocomplete_pri_3 = Autocomplete.create!( #id 24
     text: "El lenguaje de programación más utilizado en el desarrollo web es _ _ _ _ _ _ _ .",
-    help: "Es un hijo del lenguaje JAVA.",
+    help: "Es un lenguaje hijo del lenguaje JAVA.",
     difficulty: beginner_difficulty
   )
 
   Answer.create!(
     question: autocomplete_pri_3,
-    answers_autocomplete: ["JavaScript", "javascript", "Javascript"]
+    answers_autocomplete: ["JavaScript", "javascript", "Javascript", "java script", "javaScript"]
   )
 
   # Pregunta 4
@@ -827,61 +827,61 @@ Question.transaction do
 
   # Pregunta 6
   choice_exp_6 = Choice.create!( #id 37
-    text: "¿Qué imprime el siguiente programa? x := 1; Leer(x); x := x + 1; Escribir(x);",
+    text: "¿Cuál de los siguientes criterios tiene la prueba de CAJA BLANCA?",
     difficulty: difficult_difficulty
   )
 
   Answer.create!(
     question: choice_exp_6,
-    text: "2",
+    text: "Cobertura de sentencias.",
     correct: true
   )
 
   Answer.create!(
     question: choice_exp_6,
-    text: "1",
+    text: "Clases de equivalencia.",
     correct: false
   )
 
   Answer.create!(
     question: choice_exp_6,
-    text: "x",
+    text: "Tablas de desición.",
     correct: false
   )
 
   Answer.create!(
     question: choice_exp_6,
-    text: "x + 1",
+    text: "Todas las opciones son correctas.",
     correct: false
   )
 
   # Pregunta 7
   choice_exp_7 = Choice.create!( #id 38
-    text: "¿Cuántos lenguajes de programación se utilizaron para realizar esta página web?",
+    text: "¿Quién fue Alan Turing?",
     difficulty: difficult_difficulty
   )
 
   Answer.create!(
     question: choice_exp_7,
-    text: "Dos",
+    text: "El creador de microsoft.",
     correct: false
   )
 
   Answer.create!(
     question: choice_exp_7,
-    text: "Uno",
+    text: "Un actor.",
     correct: false
   )
 
   Answer.create!(
     question: choice_exp_7,
-    text: "Cuatro",
+    text: "Descubrió como funciona la máquina Enigma.",
     correct: true
   )
 
   Answer.create!(
     question: choice_exp_7,
-    text: "Tres",
+    text: "Ninguna opción es correcta.",
     correct: false
   )
 
@@ -915,31 +915,31 @@ Question.transaction do
   )
 
   choice_exp_9 = Choice.create!( # id 40
-    text: "¿Cuál de las siguientes opciones describe mejor la complejidad temporal del algoritmo de ordenamiento QuickSort?",
+    text: "¿Cuál de las siguientes opciones describe la complejidad temporal del algoritmo de ordenamiento QuickSort?",
     difficulty: difficult_difficulty
   )
 
   Answer.create!(
     question: choice_exp_9,
-    text: "O(n)",
+    text: "Lineal: O (n)",
     correct: false
   )
 
   Answer.create!(
     question: choice_exp_9,
-    text: "O(n * log (n))",
+    text: "Un valor * logaritmo: O (n * log (n))",
     correct: true
   )
 
   Answer.create!(
     question: choice_exp_9,
-    text: "O(n^2)",
+    text: "Cuadrático: O (n ^ 2)",
     correct: false
   )
 
   Answer.create!(
     question: choice_exp_9,
-    text: "O(log (n))",
+    text: "Logarítmico: O (log (n))",
     correct: false
   )
 
@@ -1105,7 +1105,7 @@ Question.transaction do
   )
 
   true_false_exp_5 = True_False.create!( #id 48
-    text: "El algoritmo de búsqueda binaria requiere que los elementos estén ordenados previamente en la lista.",
+    text: "El algoritmo de BUSQUEDA BINARIA requiere que los elementos estén ordenados previamente.",
     difficulty: difficult_difficulty
   )
 
@@ -1139,7 +1139,7 @@ Question.transaction do
   )
 
   true_false_exp_7 = True_False.create!( #id 50
-    text: "El lenguaje de programación Java es una variante del lenguaje JavaScript.",
+    text: "El lenguaje de programación JAVA es una variante del lenguaje JavaScript.",
     difficulty: difficult_difficulty
   )
 
@@ -1187,7 +1187,7 @@ Question.transaction do
 
   # Pregunta 2
   autocomplete_exp_2 = Autocomplete.create!( #id 53
-    text: "El concepto de 'Internet de las cosas' se refiere a la interconexión de _ _ _ _ _ _ _ .",
+    text: "El concepto de 'Internet de las Cosas' se refiere a la interconexión de _ _ _ _ _ _ _ .",
     difficulty: difficult_difficulty
   )
 
@@ -1217,17 +1217,17 @@ Question.transaction do
   )
 
   autocomplete_exp_5 = Autocomplete.create!( #id 56
-    text: "La arquitectura de computadoras conocida como 'Von Neumann' fue propuesta por _ _ _ _ _ _ _ en el año 1945.",
+    text: "La arquitectura de computadoras fue propuesta por _ _ _ _ _ _ _ en el año 1945.",
     difficulty: difficult_difficulty
   )
 
   Answer.create!(
     question: autocomplete_exp_5,
-    answers_autocomplete: ["John von Neumann", "john von neumann", "John Von Neumann", "john Von Neumann"]
+    answers_autocomplete: ["Von Neumann", "von neumann", "Von neumann", "von Neumann", "vonneumann"]
   )
 
   autocomplete_exp_6 = Autocomplete.create!( #id 57
-    text: "El lenguaje de programación orientado a objetos más utilizado actualmente es _ _ _ _ _ _ _ .",
+    text: "El lenguaje de programación ORIENTADO A OBJETOS más utilizado actualmente es _ _ _ _ _ _ _ .",
     difficulty: difficult_difficulty
   )
 
@@ -1278,5 +1278,3 @@ Question.transaction do
   )
 
 end
-
-

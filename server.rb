@@ -90,7 +90,7 @@ class App < Sinatra::Application
         # Crear un nuevo registro en la base de datos
         user = User.create(username: username, email: email, password: password)
         if user.save
-          @message = "Vuelva a logearse por favor, vaya a inicio de sesión."
+          @message = "Excelente! Ahora dirigase al inicio de sesión."
           erb :register_success
         else
           redirect "/error?code=registration&reason=registration_error&error_message=#{CGI.escape(user.errors.full_messages.join(', '))}"
