@@ -179,7 +179,6 @@ class App < Sinatra::Application
     trivia.save
     session[:trivia_id] = trivia.id
     session[:answered_questions] = []
-
     redirect '/question/0'
   end
 
@@ -290,7 +289,6 @@ class App < Sinatra::Application
     erb :error, locals: { error_message: @error_message }
   end
 
-
   get '/results' do
     redirect '/trivia' if @trivia.nil?  # Redirigir si no hay una trivia en sesión
 
@@ -333,7 +331,7 @@ class App < Sinatra::Application
 
     end
 
-    ###########################Logica para el ranking
+    ########################### Logica para el ranking
     # Obtener el usuario actual
     user = current_user
 
@@ -343,14 +341,13 @@ class App < Sinatra::Application
     # Buscar el ranking existente del usuario para la dificultad actual
     ranking = Ranking.find_by(user_id: user.id, difficulty_id: difficulty.id)
 
-    if ranking.nil? || @score > ranking.score
+    if ranking.nil? || @score > ranking.score || @score < ranking.score 
       # Si no existe un ranking o el nuevo score es mayor al anterior, crear o actualizar el ranking
       ranking = Ranking.find_or_initialize_by(user_id: user.id, difficulty_id: difficulty.id)
       ranking.score = @score
       ranking.difficulty = difficulty
       ranking.save
     end
-
     erb :results, locals: { results: @results, score: @score }
   end
 

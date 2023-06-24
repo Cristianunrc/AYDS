@@ -2,7 +2,7 @@
 ActiveRecord::Base.connection.execute('PRAGMA foreign_keys = OFF;')
 if ENV['RACK_ENV'] == 'development'
   # Eliminar los registros existentes antes de crear nuevos
-  [Choice, Answer, Question, Difficulty, User].each(&:destroy_all)
+  [Choice, Answer, Question, Difficulty].each(&:destroy_all)
 end
 ActiveRecord::Base.connection.execute('PRAGMA foreign_keys = ON;')
 
@@ -596,7 +596,7 @@ Question.transaction do
 
   Answer.create!(
     question: autocomplete_pri_4,
-    answers_autocomplete: ["hardware", "Hardware"]
+    answers_autocomplete: ["Hardware", "hardware"]
   )
 
   # Pregunta 5
