@@ -47,10 +47,11 @@ body {
     cursor: pointer;
     font-size: 20px;
     padding: 10px 20px;
-    box-shadow: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
     transition: none;
    }
 
    input[type="submit"]:hover {
     background-color:#caff85;
+    transform: translateY(-2px);
    }
