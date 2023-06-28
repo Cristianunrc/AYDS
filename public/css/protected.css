@@ -76,7 +76,7 @@ button:hover {
   border: 1px solid #000000;
   padding: 20px;
   text-align: center;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -91,6 +91,14 @@ button:hover {
   margin-right: 15px;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparencia de fondo*/
+}
 .ranking-container {
   display: flex;
   justify-content: space-between;

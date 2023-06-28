@@ -7,7 +7,7 @@
 <body>
   <div class="ranking-container">
     <div class="ranking beginner-ranking">
-      <h3>Ranking Principiante</h3>
+      <h3>Nivel Principiante</h3>
       <table>
         <thead>
           <tr>
@@ -28,7 +28,7 @@
       </table>
     </div>
     <div class="ranking difficulty-ranking">
-      <h3>Ranking Experto</h3>
+      <h3>Nivel Experto</h3>
       <table>
         <thead>
           <tr>
@@ -49,7 +49,7 @@
       </table>
     </div>
   </div>
-  <h1>¡Hola <%= @username %>!, esta es la página protegida.</h1>
+  <h1>¡Hola <%= @username %>! ésta es la página protegida.</h1>
   <p>La autenticación fue correcta. ¡Que comience el juego!</p>
   <form action="/trivia" method="post">
     <h2>Seleccione la dificultad de la trivia para continuar:</h2>
@@ -63,6 +63,8 @@
   </div>
   <script>
     function showMsg() {
+      var overlay = document.createElement("div");
+      overlay.classList.add("overlay");
       var msgContainer = document.querySelector(".msg-container");
       var msgBox = document.createElement("div"); // se crea dinamicamente un elemento div
       msgBox.classList.add("message-box"); // se agrega la clase message-box al elemento div
@@ -71,7 +73,8 @@
           <button class="button" onclick="yesExit()">Si</button>
           <button class="button" onclick="noExit()">No</button>
         `;
-      msgContainer.appendChild(msgBox); 
+      overlay.appendChild(msgBox); // se muestra el cuadro de dialogo
+      document.body.appendChild(overlay); // se bloquea la pantalla menos el cuadro de dialogo
     }
 
     function yesExit() {
@@ -79,8 +82,10 @@
     }
 
     function noExit() {
+      var overlay = document.querySelector(".overlay");
       var msgContainer = document.querySelector(".msg-container");
       var msgBox = msgContainer.querySelector(".message-box");
+      document.body.removeChild(overlay); // se elimina el bloque de pantalla
       msgContainer.removeChild(msgBox); // se elimina el cuadro de dialogo
     }
     </script>
