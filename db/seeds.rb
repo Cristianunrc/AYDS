@@ -392,13 +392,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_1,
-    text: "True",
+    text: "Verdadero",
     correct: false
   )
 
   Answer.create!(
     question: true_false_pri_1,
-    text: "False",
+    text: "Falso",
     correct: true
   )
 
@@ -411,13 +411,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_2,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_pri_2,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -430,13 +430,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_3,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_pri_3,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -449,13 +449,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_4,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_pri_4,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -467,13 +467,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_5,
-    text: "True",
+    text: "Verdadero",
     correct: false
   )
 
   Answer.create!(
     question: true_false_pri_5,
-    text: "False",
+    text: "Falso",
     correct: true
   )
 
@@ -485,13 +485,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_6,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_pri_6,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -503,13 +503,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_7,
-    text: "True",
+    text: "Verdadero",
     correct: false
   )
 
   Answer.create!(
     question: true_false_pri_7,
-    text: "False",
+    text: "Falso",
     correct: true
   )
 
@@ -521,13 +521,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_8,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_pri_8,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -539,13 +539,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_pri_9,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_pri_9,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -915,31 +915,31 @@ Question.transaction do
   )
 
   choice_exp_9 = Choice.create!( # id 40
-    text: "¿Cuál de las siguientes opciones describe la complejidad temporal del algoritmo de ordenamiento QuickSort?",
+    text: "¿Cuál de las siguientes funciones describe la COMPLEJIDAD TEMPORAL del algoritmo de ordenamiento QuickSort?",
     difficulty: difficult_difficulty
   )
 
   Answer.create!(
     question: choice_exp_9,
-    text: "Lineal: O (n)",
+    text: "Función lineal: Orden (n)",
     correct: false
   )
 
   Answer.create!(
     question: choice_exp_9,
-    text: "Un valor * logaritmo: O (n * log (n))",
+    text: "Función logarítmica: Orden (n * log (n))",
     correct: true
   )
 
   Answer.create!(
     question: choice_exp_9,
-    text: "Cuadrático: O (n ^ 2)",
+    text: "Función cuadrática: Orden (n ^ 2)",
     correct: false
   )
 
   Answer.create!(
     question: choice_exp_9,
-    text: "Logarítmico: O (log (n))",
+    text: "Función logarítmica: Orden (log (n))",
     correct: false
   )
 
@@ -1041,13 +1041,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_exp_1,
-    text: "True",
+    text: "Verdadero",
     correct: false
   )
 
   Answer.create!(
     question: true_false_exp_1,
-    text: "False",
+    text: "Falso",
     correct: true
   )
 
@@ -1059,13 +1059,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_exp_2,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_exp_2,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -1077,13 +1077,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_exp_3,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_exp_3,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -1094,13 +1094,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_exp_4,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_exp_4,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -1111,13 +1111,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_exp_5,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_exp_5,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -1128,13 +1128,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_exp_6,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_exp_6,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 
@@ -1145,13 +1145,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_exp_7,
-    text: "True",
+    text: "Verdadero",
     correct: false
   )
 
   Answer.create!(
     question: true_false_exp_7,
-    text: "False",
+    text: "Falso",
     correct: true
   )
 
@@ -1162,13 +1162,13 @@ Question.transaction do
 
   Answer.create!(
     question: true_false_exp_8,
-    text: "True",
+    text: "Verdadero",
     correct: true
   )
 
   Answer.create!(
     question: true_false_exp_8,
-    text: "False",
+    text: "Falso",
     correct: false
   )
 

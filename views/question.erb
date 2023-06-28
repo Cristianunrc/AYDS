@@ -65,7 +65,7 @@
         overlay.remove();
       });
     }
-
+     // function for colour of cronometro
      function startTimer(duration, display) {
         var timerContainer = document.getElementById("timer-container");
         var timer = duration, seconds;
@@ -76,9 +76,9 @@
           display.text(seconds);
           timer--;
           if (triviaDifficultyLevel == "beginner") {
-            if (timer >= 10){
+            if (timer >= 12){
               timerContainer.className = "green";
-            } else if (timer >= 5){
+            } else if (timer >= 6){
               timerContainer.className = "yellow";
             } else if (timer >= 0){
               timerContainer.className = "red";
@@ -87,7 +87,7 @@
               showTimeUpMessage();
             }
           } else if (triviaDifficultyLevel == "difficult") {
-              if (timer >= 7){
+              if (timer >= 8){
                 timerContainer.className = "green";
               } else if (timer >= 4){
                 timerContainer.className = "yellow";
@@ -100,7 +100,6 @@
           }
         }, 1000);
       }
-
      $(document).ready(function () {
       var timeLimit = parseInt($("#timer-container").data("time-limit-seconds"));
       var display = $("#timer");

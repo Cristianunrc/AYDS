@@ -195,7 +195,7 @@ class App < Sinatra::Application
       else
         @question = question
         @answers = Answer.where(question_id: question.id)
-        @time_limit_seconds = @trivia.difficulty.level == "beginner" ? 15 : 10
+        @time_limit_seconds = @trivia.difficulty.level == "beginner" ? 18 : 12
         @question_index = index # Inicializar @question_index con el valor de index
         @help = @trivia.difficulty.level == "beginner" ? question.help : nil
         erb :question, locals: { question: @question, trivia: @trivia, question_index: @question_index, answers: @answers, time_limit_seconds: @time_limit_seconds, help: @help}
@@ -296,7 +296,7 @@ class App < Sinatra::Application
     @results = []
     @score = 0
     @idx = 0
-    response_time_limit = @trivia.difficulty == 'beginner' ? 15 : 10
+    response_time_limit = @trivia.difficulty == 'beginner' ? 18 : 12
 
     @trivia.question_answers.each do |question_answer|
       question = question_answer.question
