@@ -66,7 +66,7 @@ h2 {
 }
 
 button {
-  background-color:  #f5ff85;
+  background-color:  #ffdf59;
   border: 1px solid #333;
   border-radius: 4px;
   color: #333;
@@ -80,7 +80,8 @@ button {
 
 /* Aplica cuando se pasa el puntero por encima del boton*/
 button:hover {
-  background-color: #f1ff85b3;
+  background-color: #ffde59b3;
+  transform: translateY(-2px);
 }
 
 #timer-container {
