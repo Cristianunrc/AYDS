@@ -4,10 +4,10 @@ require 'sinatra/activerecord'
 # Realiza una prueba unitaria en la clase User
 describe User do
   describe 'validations' do
-      it "is invalid without a username" do
-        user = User.new(password: 'password', email: 'john@example.com')
-        expect(user.valid?).to eq(false)
-      end
+    it "is invalid without a username" do
+      user = User.new(password: 'password', email: 'john@example.com')
+      expect(user.valid?).to eq(false)
+    end
 
     it "is invalid without a password" do
       user = User.new(username: 'john_doe', email: 'john@example.com')
