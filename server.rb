@@ -328,16 +328,11 @@ class App < Sinatra::Application
       else
         @score += 0
       end
-
     end
 
     ########################### Logica para el ranking
-    # Obtener el usuario actual
     user = current_user
-
-    # Obtener la dificultad de la trivia
     difficulty = @trivia.difficulty
-
     # Buscar el ranking existente del usuario para la dificultad actual
     ranking = Ranking.find_by(user_id: user.id, difficulty_id: difficulty.id)
 
@@ -348,7 +343,18 @@ class App < Sinatra::Application
       ranking.difficulty = difficulty
       ranking.save
     end
-    erb :results, locals: { results: @results, score: @score }
+ 
+    if @score < 30
+      @message_results = "¡No obtuviste un buen resultado! Pero sigue intentandolo"
+    end  
+    if @score >= 30 && @score < 60
+      @message_results = "¡Falta mejorar un poquito! Estas avanzando"
+    end
+    if @score >= 60   
+      @message_results = "¡Muy bien jugado! Felicitaciones"  
+    end
+
+    erb :results, locals: { results: @results, score: @score, message_results: @message_results }
   end
 
   private
