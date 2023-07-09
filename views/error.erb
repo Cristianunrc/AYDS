@@ -26,7 +26,6 @@
     <% else %>
       <p>Ha ocurrido un error durante el registro.</p>
     <% end %>
-    <p>Vuelva a intentarlo más tarde.</p>
   <% elsif params[:code] == "login" %>
     <% if params[:reason] == "authenticate_failed" %>
       <p> <%= @error_message %> </p>

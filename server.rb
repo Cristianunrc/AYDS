@@ -113,7 +113,6 @@ class App < Sinatra::Application
     if user && user.authenticate(password)
       # Iniciar sesión al usuario
       session[:user_id] = user.id
-
       # Redirigir al usuario a una página protegida
       redirect '/protected_page'
     else
@@ -283,7 +282,7 @@ class App < Sinatra::Application
 
     if error_code == "login"
       if error_reason == "authenticate_failed"
-        @error_message = "El usuario o la contraseña no coinciden. Por favor, vuelva a intentearlo."
+        @error_message = "El usuario o la contraseña no coinciden. Por favor, vuelva a intentarlo."
       end
     end
     erb :error, locals: { error_message: @error_message }
@@ -364,7 +363,7 @@ class App < Sinatra::Application
     max_score = 10
 
     # Si el nivel es 'beginner', restamos 1 punto por cada 4 segundos que tomó responder la pregunta
-    if response_time_limit == 15
+    if response_time_limit == 18
       points_to_subtract = [(response_time / 4).ceil, 3].min
     else
       # Si el nivel no es 'beginner', restamos 1 punto por cada 3 segundos que tomó responder la pregunta
