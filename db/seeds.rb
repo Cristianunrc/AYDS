@@ -656,7 +656,7 @@ Question.transaction do
 
   Answer.create!(
     question: autocomplete_pri_9,
-    answers_autocomplete: ["programa", "Programa"]
+    answers_autocomplete: ["Programa", "programa"]
   )
 
   # Pregunta 10
