@@ -1,29 +1,25 @@
 require_relative '../../models/init.rb'
 require 'sinatra/activerecord'
 
-describe Choice do
-  
-  # Se crea un nuevo registro en la tabla Difficulty inicializando solo la columna level
-  # y se asgina en la instancia @beginner_difficulty   
-  before do
-    @beginner_difficulty = Difficulty.create(level: :beginner)
-  end
-  
+describe True_False do
+    
   describe 'validations' do
-
+    
     it "is invalid whitout a text" do
-      choice = Choice.new(difficulty: @beginner_difficulty)
-      expect(choice.valid?).to eq(false)
+      beginner_difficulty = Difficulty.create!(level: :beginner)
+      trueFalse = True_False.new(difficulty: beginner_difficulty)
+      expect(trueFalse.valid?).to eq(false)
     end
 
     it "is invalid whitout a difficulty ID" do
-      choice = Choice.new(text: "choice question?")
-      expect(choice.valid?).to eq(false)
+      trueFalse = True_False.new(text: "true_false question?")
+      expect(trueFalse.valid?).to eq(false)
     end
-  
-  end
 
+  end
+ 
   describe 'associations' do
+    
     it "has many question_answers" do
       association = described_class.reflect_on_association(:question_answers)
       expect(association.macro).to eq(:has_many)
