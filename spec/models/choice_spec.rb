@@ -2,17 +2,12 @@ require_relative '../../models/init.rb'
 require 'sinatra/activerecord'
 
 describe Choice do
-  
-  # Se crea un nuevo registro en la tabla Difficulty inicializando solo la columna level
-  # y se asgina en la instancia @beginner_difficulty   
-  before do
-    @beginner_difficulty = Difficulty.create(level: :beginner)
-  end
-  
+
   describe 'validations' do
 
     it "is invalid whitout a text" do
-      choice = Choice.new(difficulty: @beginner_difficulty)
+      beginner_difficulty = Difficulty.create!(level: :beginner)
+      choice = Choice.new(difficulty: beginner_difficulty)
       expect(choice.valid?).to eq(false)
     end
 

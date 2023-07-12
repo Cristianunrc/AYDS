@@ -6,12 +6,12 @@ require 'sinatra/activerecord'
 describe Trivia do
   describe 'validations' do
     
-    it "is invalid without a user_id" do
+    it "is invalid without a user ID" do
       trivia = Trivia.new(difficulty_id: 1)
       expect(trivia.valid?).to eq(false)
     end
 
-    it "is invalid without a difficulty_id" do
+    it "is invalid without a difficulty ID" do
       trivia = Trivia.new(user_id: 1)
       expect(trivia.valid?).to eq(false)
     end

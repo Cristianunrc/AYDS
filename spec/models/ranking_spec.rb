@@ -6,12 +6,12 @@ describe Ranking do
 
   describe 'validations' do
     
-    it "is invalid without a user_id" do
+    it "is invalid without a user ID" do
       ranking = Ranking.new(score: 0, difficulty_id: 1)
       expect(ranking.valid?).to eq(false)
     end
 
-    it "is invalid without a difficulty_id" do
+    it "is invalid without a difficulty ID" do
       ranking = Ranking.new(user_id: 1, score: 0)
       expect(ranking.valid?).to eq(false)
     end  
