@@ -74,9 +74,9 @@ class App < Sinatra::Application
   post '/registrarse' do
     # Obtener los datos del formulario
     username = params[:username]
+    email = params[:email]
     password = params[:password]
     confirm_password = params[:confirm_password]
-    email = params[:email]
 
     # Verificar si las contraseñas coinciden
     if password == confirm_password
@@ -194,7 +194,7 @@ class App < Sinatra::Application
       else
         @question = question
         @answers = Answer.where(question_id: question.id)
-        @time_limit_seconds = @trivia.difficulty.level == "beginner" ? 18 : 12
+        @time_limit_seconds = @trivia.difficulty.level == "beginner" ? 35 : 20
         @question_index = index # Inicializar @question_index con el valor de index
         @help = @trivia.difficulty.level == "beginner" ? question.help : nil
         erb :question, locals: { question: @question, trivia: @trivia, question_index: @question_index, answers: @answers, time_limit_seconds: @time_limit_seconds, help: @help}
@@ -238,10 +238,9 @@ class App < Sinatra::Application
           answer_autocomplete.update(autocomplete_input: autocomplete_input)
         end
 
-        total_time = @trivia.difficulty == "beginner" ? 15 : 10
+        total_time = @trivia.difficulty == "beginner" ? 35 : 20
         response_time = total_time - params[:response_time].to_i
         question_answer&.update(response_time: response_time)
-
         next_index = index + 1
         redirect "/question/#{next_index}"
       end
@@ -295,7 +294,7 @@ class App < Sinatra::Application
     @results = []
     @score = 0
     @idx = 0
-    response_time_limit = @trivia.difficulty == 'beginner' ? 18 : 12
+    response_time_limit = @trivia.difficulty == 'beginner' ? 35 : 20
 
     @trivia.question_answers.each do |question_answer|
       question = question_answer.question
@@ -363,11 +362,11 @@ class App < Sinatra::Application
     max_score = 10
 
     # Si el nivel es 'beginner', restamos 1 punto por cada 4 segundos que tomó responder la pregunta
-    if response_time_limit == 18
-      points_to_subtract = [(response_time / 4).ceil, 3].min
+    if response_time_limit == 35
+      points_to_subtract = [(response_time / 5).ceil, 3].min
     else
       # Si el nivel no es 'beginner', restamos 1 punto por cada 3 segundos que tomó responder la pregunta
-      points_to_subtract = [(response_time / 3).ceil, 3].min
+      points_to_subtract = [(response_time / 4).ceil, 3].min
     end
 
     # Calculamos la puntuación final restando los puntos a restar de la puntuación máxima y asegurándonos de que esté dentro del rango 0 a max_score
