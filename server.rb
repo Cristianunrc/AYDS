@@ -250,9 +250,9 @@ class App < Sinatra::Application
   get '/error' do
     error_code = params[:code]
     error_reason = params[:reason]
-
     @error_message = "Ha ocurrido un error."
-
+    
+    # Manejo de errores para las preguntas de la trivia
     if error_code == "unanswered"
       @error_message = "Se intentó acceder directamente a una pregunta sin haber respondido la pregunta anterior."
     end
@@ -261,6 +261,7 @@ class App < Sinatra::Application
       @error_message = "La pregunta ya ha sido respondida."
     end
 
+    # Manejo de errores para el registro de usuario
     if error_code == "registration"
       if error_reason == "password_mismatch"
         @error_message = "Las contraseñas no coinciden."
@@ -278,12 +279,14 @@ class App < Sinatra::Application
         @error_message = "El email no está disponible."
       end
     end
-
+    
+    # Manejo de errores para el inicio de sesion de usuario
     if error_code == "login"
       if error_reason == "authenticate_failed"
-        @error_message = "El usuario o la contraseña no coinciden. Por favor, vuelva a intentarlo."
+        @error_message = "El usuario o la contraseña no coinciden. Por favor, vuelva a intentearlo."
       end
     end
+
     erb :error, locals: { error_message: @error_message }
   end
 

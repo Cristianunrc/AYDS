@@ -39,3 +39,8 @@ body {
     padding: 10px 20px;
     box-shadow: none;
   }
+
+  input[type="submit"]:hover {
+    background-color:#caff85;
+    transform: translateY(-2px);
+   }

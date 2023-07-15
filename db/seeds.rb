@@ -668,7 +668,7 @@ Question.transaction do
 
   Answer.create!(
     question: autocomplete_pri_10,
-    answers_autocomplete: ["compilación", "Compilación", "compilacion", "Compilacion"]
+    answers_autocomplete: ["Compilación", "compilación", "compilacion", "Compilacion"]
   )
 
   ####################################################################
@@ -1247,7 +1247,7 @@ Question.transaction do
   )
 
   autocomplete_exp_8 = Autocomplete.create!( #id 59
-    text: "El lenguaje de programación Python fue creado por Guido van _ _ _ _ _ _ _ en el año 1991.",
+    text: "El lenguaje de programación Python fue creado por Guido Van _ _ _ _ _ _ _ en el año 1991.",
     difficulty: difficult_difficulty
   )
 
