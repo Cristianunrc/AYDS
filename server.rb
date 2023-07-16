@@ -106,14 +106,12 @@ class App < Sinatra::Application
     username = params[:username]
     password = params[:password]
 
-    # Buscar al usuario en la base de datos
+    # Buscar al usuario en la tabla User
     user = User.find_by(username: username)
 
     # Verificar si el usuario existe y si la contraseña es correcta
     if user && user.authenticate(password)
-      # Iniciar sesión al usuario
-      session[:user_id] = user.id
-      # Redirigir al usuario a una página protegida
+      session[:user_id] = user.id # El id del usuario se almacena en la session
       redirect '/protected_page'
     else
       redirect "/error?code=login&reason=authenticate_failed"
@@ -123,8 +121,7 @@ class App < Sinatra::Application
   get '/protected_page' do
     if session[:user_id]
       user_id = session[:user_id]
-      @username = User.find(user_id).username # en username se almacena el nombre de usuario logeado
-      # Usuario autenticado, mostrar página protegida
+      @username = User.find(user_id).username # en @username se almacena el nombre de usuario logeado
       # Obtener los rankings
       beginner_difficulty = Difficulty.find_by(level: "beginner")
       difficult_difficulty = Difficulty.find_by(level: "difficult")
@@ -134,8 +131,7 @@ class App < Sinatra::Application
 
       erb :protected_page, locals: { beginner_ranking: beginner_ranking, difficult_ranking: difficult_ranking }
     else
-      # Usuario no autenticado, redirigir a la página de inicio de sesión
-      redirect '/login'
+      redirect '/login' # Usuario no autenticado, redirigir a la página de inicio de sesión
     end
   end
 
@@ -148,32 +144,21 @@ class App < Sinatra::Application
     if difficulty_level == "beginner"
       choice_count = rand(3..6)
       true_false_count = rand(3..4)
-      remaining_count = 10 - choice_count - true_false_count
-
-      autocomplete_count = [remaining_count, 0].max
-
-      choice_questions = difficulty.questions.where(type: 'Choice').order("RANDOM()").limit(choice_count)
-      true_false_questions = difficulty.questions.where(type: 'True_False').order("RANDOM()").limit(true_false_count)
-      autocomplete_questions = difficulty.questions.where(type: 'Autocomplete').order("RANDOM()").limit(autocomplete_count)
-
-      questions = choice_questions.to_a + true_false_questions.to_a + autocomplete_questions.to_a
-      shuffled_questions = questions.shuffle
-      trivia.questions.concat(shuffled_questions)
-    else
+    else # difficulty_level == "difficult"
       choice_count = rand(2..5)
       true_false_count = rand(2..4)
-      remaining_count = 10 - choice_count - true_false_count
+    end  
+      
+    remaining_count = 10 - choice_count - true_false_count
+    autocomplete_count = [remaining_count, 0].max
 
-      autocomplete_count = [remaining_count, 0].max
+    choice_questions = difficulty.questions.where(type: 'Choice').order("RANDOM()").limit(choice_count)
+    true_false_questions = difficulty.questions.where(type: 'True_False').order("RANDOM()").limit(true_false_count)
+    autocomplete_questions = difficulty.questions.where(type: 'Autocomplete').order("RANDOM()").limit(autocomplete_count)
 
-      choice_questions = difficulty.questions.where(type: 'Choice').order("RANDOM()").limit(choice_count)
-      true_false_questions = difficulty.questions.where(type: 'True_False').order("RANDOM()").limit(true_false_count)
-      autocomplete_questions = difficulty.questions.where(type: 'Autocomplete').order("RANDOM()").limit(autocomplete_count)
-
-      questions = choice_questions.to_a + true_false_questions.to_a + autocomplete_questions.to_a
-      shuffled_questions = questions.shuffle
-      trivia.questions.concat(shuffled_questions)
-    end
+    questions = choice_questions.to_a + true_false_questions.to_a + autocomplete_questions.to_a
+    shuffled_questions = questions.shuffle # se mezclan las preguntas con metodo shuffle
+    trivia.questions.concat(shuffled_questions) # se concatenan las preguntas
 
     trivia.save
     session[:trivia_id] = trivia.id
@@ -218,7 +203,7 @@ class App < Sinatra::Application
 
       if selected_answer.nil? && !question.is_a?(Autocomplete)
         session[:answered_questions] << index
-        redirect "/question/#{index+1}"
+        redirect "/question/#{index + 1}"
       elsif session[:answered_questions].include?(index)
         redirect '/error?code=answered'
       else
