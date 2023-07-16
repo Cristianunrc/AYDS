@@ -2,7 +2,7 @@
 ActiveRecord::Base.connection.execute('PRAGMA foreign_keys = OFF;')
 if ENV['RACK_ENV'] == 'development'
   # Eliminar los registros existentes antes de crear nuevos
-  [Choice, Answer, Question, Difficulty].each(&:destroy_all)
+  [Question, Answer, Difficulty].each(&:destroy_all)
 end
 ActiveRecord::Base.connection.execute('PRAGMA foreign_keys = ON;')
 
@@ -34,7 +34,7 @@ Question.transaction do
 
   Answer.create!(
     question: choice_pri_1,
-    text: "Un software que traduce el código fuente a lenguaje máquina.",
+    text: "Un programa que convierte el código fuente a lenguaje máquina o código binario.",
     correct: true
   )
 
@@ -43,11 +43,13 @@ Question.transaction do
     text: "Un dispositivo que permite la comunicación entre computadoras.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_1,
     text: "Un componente físico de una computadora.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_1,
     text: "Un programa para diseñar interfaces gráficas de usuario.",
@@ -66,16 +68,19 @@ Question.transaction do
     text: "Prolog",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_2,
     text: "Java",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_2,
     text: "Ruby",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_2,
     text: "SQL",
@@ -94,16 +99,19 @@ Question.transaction do
     text: "Ejecutar un programa de manera más eficiente utilizando menos recursos.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_3,
     text: "Crear una copia de seguridad de los datos en un medio externo.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_3,
     text: "Aumentar la velocidad de un componente de hardware más allá de las especificaciones del fabricante.",
     correct: true
   )
+
   Answer.create!(
     question: choice_pri_3,
     text: "Desarrollar software utilizando métodos ágiles.",
@@ -122,53 +130,59 @@ Question.transaction do
     text: "Un dispositivo que permite almacenar y recuperar información.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_4,
-    text: "Una serie de instrucciones bien escritas para resolver un problema o realizar una tarea.",
+    text: "Una serie de instrucciones bien escritas en una computadora para resolver un problema o realizar una tarea.",
     correct: true
   )
+
   Answer.create!(
     question: choice_pri_4,
     text: "Un lenguaje de programación utilizado para el desarrollo web.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_4,
-    text: "Un estándar para la transferencia de datos en la web.",
+    text: "Ninguna de las opciones anteriores.",
     correct: false
   )
 
   # Pregunta 5
   choice_pri_5 = Choice.create!( #id 5
-    text: "¿Qué es el machine learning?",
+    text: "¿Qué es el machine learning o aprendizaje de máquina?",
     help: "Aprendizaje.",
     difficulty: beginner_difficulty
   )
 
   Answer.create!(
     question: choice_pri_5,
-    text: "Una rama de la inteligencia artificial que permite a las máquinas aprender y tomar decisiones sin ser programadas explícitamente.",
+    text: "Una rama de la inteligencia artificial que permite a las máquinas aprender y tomar decisiones.",
     correct: true
   )
+
   Answer.create!(
     question: choice_pri_5,
     text: "Un enfoque de desarrollo de software que utiliza pruebas automatizadas.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_5,
-    text: "Una técnica para asegurar la calidad del software mediante la revisión por pares.",
+    text: "Una técnica para asegurar la calidad del software.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_5,
-    text: "Un método para el desarrollo rápido de aplicaciones web.",
+    text: "Un método para el desarrollo de aplicaciones web.",
     correct: false
   )
 
    # Pregunta 6
    choice_pri_6 = Choice.create!( #id 6
-    text: "¿Qué es un bucle?",
+    text: "¿Qué es un bucle o ciclo?",
     help: "Repeticiones.",
     difficulty: beginner_difficulty
   )
@@ -184,6 +198,7 @@ Question.transaction do
     text: "Un tipo de dato utilizado para almacenar texto.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_6,
     text: "Un método para organizar y almacenar datos en una estructura jerárquica.",
@@ -220,6 +235,7 @@ Question.transaction do
     text: "Un método para optimizar el rendimiento de un programa.",
     correct: false
   )
+
   Answer.create!(
     question: choice_pri_7,
     text: "Una técnica para garantizar la seguridad de un sistema informático.",
@@ -235,7 +251,7 @@ Question.transaction do
 
   Answer.create!(
     question: choice_pri_8,
-    text: "Un enfoque para el desarrollo ágil de software.",
+    text: "Una metodología para el desarrollo ágil de software.",
     correct: false
   )
 
@@ -247,7 +263,7 @@ Question.transaction do
 
   Answer.create!(
     question: choice_pri_8,
-    text: "El proceso de encontrar y corregir errores en un programa.",
+    text: "Una técnica para encontrar errores en un programa.",
     correct: true
   )
 
@@ -297,7 +313,7 @@ Question.transaction do
 
   Answer.create!(
     question: choice_pri_10,
-    text: "Un lenguaje de programación utilizado para el desarrollo web.",
+    text: "Un lenguaje de programación.",
     correct: false
   )
 
@@ -309,13 +325,13 @@ Question.transaction do
 
   Answer.create!(
     question: choice_pri_10,
-    text: "Un enfoque para la resolución de problemas en la programación.",
+    text: "Una técnica para resolver problemas de programación.",
     correct: false
   )
 
   Answer.create!(
     question: choice_pri_10,
-    text: "Un conjunto de herramientas y bibliotecas que facilita el desarrollo de aplicaciones.",
+    text: "Un conjunto de herramientas y bibliotecas que facilitan el desarrollo de aplicaciones.",
     correct: true
   )
 
@@ -385,7 +401,7 @@ Question.transaction do
 
   # Pregunta 1
   true_false_pri_1 = True_False.create!( #id 13
-    text: "La sentencia: int x = 5; tiene un tipado dinámico.",
+    text: "En un lenguaje con TIPADO DINÁMICO se declaran los tipos de las variables, ejemplo: int x = 10;",
     help: "Los lenguajes con tipado dinámico no tienen declaración de tipos.",
     difficulty: beginner_difficulty
   )
@@ -404,7 +420,7 @@ Question.transaction do
 
   # Pregunta 2
   true_false_pri_2 = True_False.create!( #id 14
-    text: "Los errores en tiempo de compilación son más sencillos de detectar que los errores en tiempo de ejecución",
+    text: "Los errores en tiempo de compilación son más fáciles de encontrar que los errores en tiempo de ejecución",
     help: "Es costoso localizar el error en tiempo de ejecución.",
     difficulty: beginner_difficulty
   )
@@ -1000,36 +1016,6 @@ Question.transaction do
     text: "Programación concurrente",
     correct: false
   )
-
-  choice_exp_12 = Choice.create!( #id 43
-    text: "¿Cuál de las siguientes opciones describe mejor el patrón de diseño MVC (Model-View-Controller)?",
-    difficulty: difficult_difficulty
-  )
-
-  Answer.create!(
-    question: choice_exp_12,
-    text: "Se utiliza para el desarrollo de aplicaciones de realidad virtual",
-    correct: false
-  )
-
-  Answer.create!(
-    question: choice_exp_12,
-    text: "Divide una aplicación en tres componentes principales para separar la lógica de negocios, la presentación y la interacción del usuario",
-    correct: true
-  )
-
-  Answer.create!(
-    question: choice_exp_12,
-    text: "Se utiliza para el diseño de bases de datos relacionales",
-    correct: false
-  )
-
-  Answer.create!(
-    question: choice_exp_12,
-    text: "Es un algoritmo de búsqueda y ordenamiento eficiente",
-    correct: false
-  )
-
 
   #Preguntas nivel experto - TRUE FALSE
 

@@ -6,13 +6,13 @@
 </head>
 <body>
   <h1>Error</h1>
-  <% if params[:code] == "unanswered" ||  params[:code] == "answered" %>
-    <p><%= @error_message %></p>
+  <% if params[:code] == "unanswered" || params[:code] == "answered" %>
+    <p> <%= @error_message %> </p>
     <p>Será redirigido para comenzar una nueva trivia.</p>
   <% elsif params[:code] == "registration" %>
       <% if params[:reason] == "password_mismatch" || params[:reason] == "registration_error" ||
             params[:reason] == "email_taken" || params[:reason] == "username_taken" %>
-        <p>Ha ocurrido un error durante el registro: <%= @error_message %></p>
+            <p>Ha ocurrido un error durante el registro: <%= @error_message %></p>
       <% else %>
         <p>Ha ocurrido un error durante el registro.</p>
         <p>Vuelva a intentarlo más tarde.</p>
@@ -25,11 +25,13 @@
     <p>Ha ocurrido un error.</p>
     <p>Vuelva a intentarlo más tarde.</p>
   <% end %>
-    
-  <form action="<% if params[:code] == "registration" %> /registrarse 
-                <% elsif params[:code] == "login" %> /login 
-                <% else%> /protected_page 
-                <% end %>" 
+
+  <!-- action recibe la ruta específica de acuerdo a su condición -->
+  <form action=" <% if params[:code] == "registration" %> /registrarse 
+                 <% elsif params[:code] == "login" %> /login 
+                 <% elsif params[:code] == "unanswered" ||  params[:code] == "answered" %> /protected_page 
+                 <% else %> / 
+                 <% end %> " 
                 method="get">
     <input type="submit" value="Entendido">
   </form>
