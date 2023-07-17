@@ -282,7 +282,7 @@ class App < Sinatra::Application
     @results = []
     @score = 0
     @idx = 0
-    response_time_limit = @trivia.difficulty == 'beginner' ? 35 : 20
+    response_time_limit = @trivia.difficulty == 'beginner'? 35 : 20
 
     @trivia.question_answers.each do |question_answer|
       question = question_answer.question
@@ -314,16 +314,17 @@ class App < Sinatra::Application
       else
         @score += 0
       end
+
     end
 
-    ########################### Logica para el ranking
+    # Logica para el ranking
     user = current_user
     difficulty = @trivia.difficulty
-    # Buscar el ranking existente del usuario para la dificultad actual
+    # Se busca el ranking del usuario (si es que existe) con la dificultad actual
     ranking = Ranking.find_by(user_id: user.id, difficulty_id: difficulty.id)
 
-    if ranking.nil? || @score > ranking.score || @score < ranking.score 
-      # Si no existe un ranking o el nuevo score es mayor al anterior, crear o actualizar el ranking
+    # Si no existe un ranking o el score actual es mayor (o menor) al que estaba, entonces se actualiza.
+    if ranking.nil? || @score > ranking.score || @score < ranking.score
       ranking = Ranking.find_or_initialize_by(user_id: user.id, difficulty_id: difficulty.id)
       ranking.score = @score
       ranking.difficulty = difficulty
@@ -332,34 +333,28 @@ class App < Sinatra::Application
  
     if @score < 30
       @message_results = "¡No obtuviste un buen resultado! Pero sigue intentandolo"
-    end  
-    if @score >= 30 && @score < 60
+    elsif @score >= 30 && @score < 60   
       @message_results = "¡Falta mejorar un poquito! Estas avanzando"
-    end
-    if @score >= 60   
+    else # score >= 60
       @message_results = "¡Muy bien jugado! Felicitaciones"  
     end
 
     erb :results, locals: { results: @results, score: @score, message_results: @message_results }
-  end
-
-  private
-
-  def calculate_response_time_score(response_time, response_time_limit)
-    # Asignamos una puntuación máxima de 10 puntos a una respuesta correcta
-    max_score = 10
-
-    # Si el nivel es 'beginner', restamos 1 punto por cada 4 segundos que tomó responder la pregunta
-    if response_time_limit == 35
-      points_to_subtract = [(response_time / 5).ceil, 3].min
-    else
-      # Si el nivel no es 'beginner', restamos 1 punto por cada 3 segundos que tomó responder la pregunta
-      points_to_subtract = [(response_time / 4).ceil, 3].min
     end
 
-    # Calculamos la puntuación final restando los puntos a restar de la puntuación máxima y asegurándonos de que esté dentro del rango 0 a max_score
-    final_score = max_score - points_to_subtract
-    final_score.clamp(0, max_score)
-  end
+    private 
+    def calculate_response_time_score(response_time, response_time_limit)
+      max_score = 10 # puntuación máxima de 10 puntos para una respuesta correcta
 
-end
+      # Si el nivel es 'beginner', se resta 1 pto por cada 5 segundo que se tarda en responder
+      if response_time_limit == 35
+        points_to_subtract = [(response_time / 5).ceil, 3].min
+      else # Si el nivel no es 'beginner', se resta 1 pto por cada 4 segundos que se tarda en responder
+      points_to_subtract = [(response_time / 4).ceil, 3].min
+      end
+
+      # Se calcula la puntuacion final y se asegura de que este en el rango entre 0 y max_score
+      final_score = max_score - points_to_subtract
+      final_score.clamp(0, max_score)
+    end
+  end # end get

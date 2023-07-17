@@ -135,7 +135,7 @@ p {
   color: #000;
   margin-bottom: 10px;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
 }
 
 /* Estilo adicional para los bloques de información */
@@ -166,10 +166,6 @@ p {
   background-color: #333;
   color: #fff;
   padding: 10px 20px;
-}
-
-.score:hover {
-  background-color: #555;
 }
 
 .button-container a.button {
