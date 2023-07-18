@@ -135,6 +135,11 @@ class App < Sinatra::Application
     end
   end
 
+  # Metodo para el servicio de reclamos
+  get '/reclamo' do
+    erb :claim
+  end
+
   post '/trivia' do
     user = current_user
     difficulty_level = params[:difficulty]

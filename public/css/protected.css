@@ -99,6 +99,17 @@ button:hover {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Transparencia de fondo*/
 }
+
+/* Estilo para el boton de reclamo */
+
+.claim-container {
+  position: relative;
+  top: -110px;
+  right: -600px;
+}
+
+/* Estilo para los rankings */
+
 .ranking-container {
   display: flex;
   justify-content: space-between;
