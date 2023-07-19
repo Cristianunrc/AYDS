@@ -7,6 +7,7 @@ require 'sinatra/session'
 require 'dotenv/load'
 require 'securerandom'
 require 'enumerize'
+# Se cargan explicitamente los modelos
 require_relative 'models/user'
 require_relative 'models/question'
 require_relative 'models/choice'
@@ -17,6 +18,7 @@ require_relative 'models/question_answer'
 require_relative 'models/true_false'
 require_relative 'models/autocomplete'
 require_relative 'models/ranking'
+require_relative 'models/complaint'
 
 require 'sinatra/reloader' if Sinatra::Base.environment == :development
 
