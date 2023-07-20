@@ -137,11 +137,19 @@ class App < Sinatra::Application
     end
   end
 
-  # Metodo para el servicio de reclamos
   get '/reclamo' do
-    erb :claim
+    erb :complaint
   end
 
+  post '/reclamo' do
+    user_id = session[:user_id] # almaceno el id del usuario logueado 
+    description_text = params[:description] # almaceno el texto del reclamo (la entrada es name="description")
+    complaint = Complaint.create(description: description_text, user_id: user_id)
+    if complaint.save
+      redirect '/protected_page'
+    end
+  end
+    
   post '/trivia' do
     user = current_user
     difficulty_level = params[:difficulty]

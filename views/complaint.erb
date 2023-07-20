@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reclamos</title>
+  <link rel="stylesheet" type="text/css" href="/css/complaint.css">
+</head>
+<body>
+  <form action="/reclamo" method="post">
+    <p>Escriba su reclamo o queja.</p>
+    <div class="description-container">
+      <textarea type="text" id="description" name="description" required></textarea>
+    </div>
+    <button class="button-class" id="ok-button" type="submit" onclick="showMsg()">Enviar</button>
+    <script>
+      function showMsg() {
+        var description = document.getElementById("description").value;
+        if (description.trim() == "") {
+          window.alert("Por favor, ingrese su reclamo.");
+        } else {
+          window.alert("Su reclamo será enviado exitosamente.")
+        }
+      } 
+    </script>
+  </form>
+</body>
+</html>
