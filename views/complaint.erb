@@ -5,19 +5,22 @@
   <link rel="stylesheet" type="text/css" href="/css/complaint.css">
 </head>
 <body>
-  <form action="/reclamo" method="post">
+  <form  id="reclamo-form" action="/reclamo" method="post">
     <p>Escriba su reclamo o queja.</p>
     <div class="description-container">
-      <textarea type="text" id="description" name="description" required></textarea>
+      <textarea type="text" id="description" name="description"></textarea>
     </div>
-    <button class="button-class" id="ok-button" type="submit" onclick="showMsg()">Enviar</button>
+    <button class="button-class" id="ok-button" type="button" onclick="showMsg()">Enviar</button>
     <script>
       function showMsg() {
         var description = document.getElementById("description").value;
         if (description.trim() == "") {
-          window.alert("Por favor, ingrese su reclamo.");
+          window.alert("Por favor, ingrese su reclamo."); // muestra un mensaje diciendo que no hay reclamo
         } else {
-          window.alert("Su reclamo será enviado exitosamente.")
+          var confirmation = window.confirm("Su reclamo será enviado exitosamente.")
+          if (confirmation) {
+            document.getElementById("reclamo-form").submit(); // envia el formulario con el reclamo
+          }
         }
       } 
     </script>
