@@ -26,7 +26,7 @@ Question.transaction do
   # PREGUNTAS NIVEL PRINCIPIANTE
 
   # Pregunta 1
-  choice_pri_1 = Choice.create!(  #id 1
+  choice_pri_1 = Choice.create!(
     text: "¿Qué es un compilador?",
     help: "Proceso de conversión.",
     difficulty: beginner_difficulty
@@ -57,7 +57,7 @@ Question.transaction do
   )
 
   # Pregunta 2
-  choice_pri_2 = Choice.create!( #id 2
+  choice_pri_2 = Choice.create!(
     text: "¿Cuál de las siguientes opciones NO es un lenguaje de programación?",
     help: "Lenguaje de consulta.",
     difficulty: beginner_difficulty
@@ -88,7 +88,7 @@ Question.transaction do
   )
 
   # Pregunta 3
-  choice_pri_3 = Choice.create!( #id 3
+  choice_pri_3 = Choice.create!(
     text: "¿Qué es el overclocking?",
     help: "Mayor frecuencia.",
     difficulty: beginner_difficulty
@@ -119,7 +119,7 @@ Question.transaction do
   )
 
   # Pregunta 4
-  choice_pri_4 = Choice.create!( #id 4
+  choice_pri_4 = Choice.create!(
     text: "¿Qué es un algoritmo?",
     help: "Estructurado, organizado.",
     difficulty: beginner_difficulty
@@ -150,7 +150,7 @@ Question.transaction do
   )
 
   # Pregunta 5
-  choice_pri_5 = Choice.create!( #id 5
+  choice_pri_5 = Choice.create!(
     text: "¿Qué es el machine learning o aprendizaje de máquina?",
     help: "Aprendizaje.",
     difficulty: beginner_difficulty
@@ -181,7 +181,7 @@ Question.transaction do
   )
 
    # Pregunta 6
-   choice_pri_6 = Choice.create!( #id 6
+   choice_pri_6 = Choice.create!(
     text: "¿Qué es un bucle o ciclo?",
     help: "Repeticiones.",
     difficulty: beginner_difficulty
@@ -212,7 +212,7 @@ Question.transaction do
   )
 
   # Pregunta 7
-  choice_pri_7 = Choice.create!( #id 7
+  choice_pri_7 = Choice.create!( 
     text: "¿Qué es un algoritmo de búsqueda?",
     help: "Buscar algo especifico.",
     difficulty: beginner_difficulty
@@ -243,7 +243,7 @@ Question.transaction do
   )
 
   # Pregunta 8
-  choice_pri_8 = Choice.create!( #id 8
+  choice_pri_8 = Choice.create!( 
     text: "¿Qué es el debugging?",
     help: "Búsqueda y solución.",
     difficulty: beginner_difficulty
@@ -274,7 +274,7 @@ Question.transaction do
   )
 
   # Pregunta 9
-  choice_pri_9 = Choice.create!( #id 9
+  choice_pri_9 = Choice.create!( 
     text: "¿Qué es un repositorio de código?",
     help: "Alojar código.",
     difficulty: beginner_difficulty
@@ -305,7 +305,7 @@ Question.transaction do
   )
 
   # Pregunta 10
-  choice_pri_10 = Choice.create!( #id 10
+  choice_pri_10 = Choice.create!( 
     text: "¿Qué es un framework?",
     help: "Lugar donde se almacenan libros.",
     difficulty: beginner_difficulty
@@ -336,7 +336,7 @@ Question.transaction do
   )
 
   #Pregunta 11
-  choice_pri_11 = Choice.create!( # id 11
+  choice_pri_11 = Choice.create!( 
     text: "¿Cuál de los siguientes lenguajes de programación es funcional?",
     help: "Todos los lenguajes de programación funcional son antiguos.",
     difficulty: beginner_difficulty
@@ -367,7 +367,7 @@ Question.transaction do
   )
 
   #Pregunta 12
-  choice_pri_12 = Choice.create!( #id 12
+  choice_pri_12 = Choice.create!( 
     text: "¿Cómo funcionan los métodos encolar y desencolar de una Cola de Prioridad?",
     help: "Los elementos en una cola de prioridad están ordenados.",
     difficulty: beginner_difficulty
@@ -400,7 +400,7 @@ Question.transaction do
   # Preguntas nivel principiante - TRUE FALSE
 
   # Pregunta 1
-  true_false_pri_1 = True_False.create!( #id 13
+  true_false_pri_1 = True_False.create!( 
     text: "En un lenguaje con TIPADO DINÁMICO se declaran los tipos de las variables, ejemplo: int x = 10;",
     help: "Los lenguajes con tipado dinámico no tienen declaración de tipos.",
     difficulty: beginner_difficulty
@@ -419,7 +419,7 @@ Question.transaction do
   )
 
   # Pregunta 2
-  true_false_pri_2 = True_False.create!( #id 14
+  true_false_pri_2 = True_False.create!( 
     text: "Los errores en tiempo de compilación son más fáciles de encontrar que los errores en tiempo de ejecución",
     help: "Es costoso localizar el error en tiempo de ejecución.",
     difficulty: beginner_difficulty
@@ -438,7 +438,7 @@ Question.transaction do
   )
 
   # Pregunta 3
-  true_false_pri_3 = True_False.create!( #id 15
+  true_false_pri_3 = True_False.create!( 
     text: "La libreria stdio.h (standar input output), generalmente se la incluye en programas basados en lenguaje C.",
     help: "Utilización de funciones como: scanf y printf.",
     difficulty: beginner_difficulty
@@ -457,7 +457,7 @@ Question.transaction do
   )
 
   # Pregunta 5
-  true_false_pri_4 = True_False.create!( #id 16
+  true_false_pri_4 = True_False.create!( 
     text: "Un TERA BYTE es equivalente a mil GIGA BYTES",
     help: "Mil MEGA BYTES equivalen a un GIGA BYTE.",
     difficulty: beginner_difficulty
@@ -475,7 +475,7 @@ Question.transaction do
     correct: false
   )
 
-  true_false_pri_5 = True_False.create!( #id 17
+  true_false_pri_5 = True_False.create!( 
     text: "El sistema operativo Linux se basa en el núcleo Windows.",
     help: "Linux es un núcleo o kernel libre.",
     difficulty: beginner_difficulty
@@ -493,7 +493,7 @@ Question.transaction do
     correct: true
   )
 
-  true_false_pri_6 = True_False.create!( #id 18
+  true_false_pri_6 = True_False.create!( 
     text: "La inteligencia artificial es capaz de simular el pensamiento humano.",
     help: "La inteligencia artificial no puede pensar.",
     difficulty: beginner_difficulty
@@ -511,7 +511,7 @@ Question.transaction do
     correct: false
   )
 
-  true_false_pri_7 = True_False.create!( #id 19
+  true_false_pri_7 = True_False.create!( 
     text: "El lenguaje de programación Java es un lenguaje interpretado.",
     help: "Mediante un proceso, un archivo fuente de java se convierte en un archivo ejecutable.",
     difficulty: beginner_difficulty
@@ -529,7 +529,7 @@ Question.transaction do
     correct: true
   )
 
-  true_false_pri_8 = True_False.create!( #id 20
+  true_false_pri_8 = True_False.create!( 
     text: "El protocolo HTTP significa Hypertext Transfer Protocol.",
     help: "Cuando ingresas a una página web, ésta comienza con http.",
     difficulty: beginner_difficulty
@@ -547,7 +547,7 @@ Question.transaction do
     correct: false
   )
 
-  true_false_pri_9 = True_False.create!( #id 21
+  true_false_pri_9 = True_False.create!( 
     text: "El lenguaje de programación Ruby fue creado en Japón.",
     help: "Su creador es Yukihiro Matsumoto",
     difficulty: beginner_difficulty
@@ -565,10 +565,28 @@ Question.transaction do
     correct: false
   )
 
+  true_false_pri_10 = True_False.create!( 
+    text: "El disco duro de una computadora forma parte de su HARDWARE.",
+    help: "El hardware está formado por los componentes físicos de una computadora.",
+    difficulty: beginner_difficulty
+  )
+
+  Answer.create!(
+    question: true_false_pri_10,
+    text: "Verdadero",
+    correct: true
+  )
+
+  Answer.create!(
+    question: true_false_pri_10,
+    text: "Falso",
+    correct: false
+  )
+
   # Preguntas AUTOCOMPLETADO, nivel principiante
 
   # Pregunta 1
-  autocomplete_pri_1 = Autocomplete.create!( #id 22
+  autocomplete_pri_1 = Autocomplete.create!( 
     text: "El primer ordenador electrónico fue construido en el año _ _ _ _ _ _ _ . ",
     help: "Después de la segunda guerra mundial, entre el año 1945 y 1950.",
     difficulty: beginner_difficulty
@@ -580,7 +598,7 @@ Question.transaction do
   )
 
   # Pregunta 2
-  autocomplete_pri_2 = Autocomplete.create!( #id 23
+  autocomplete_pri_2 = Autocomplete.create!( 
     text: "El primer teléfono móvil comercial se lanzó en el año _ _ _ _ _ _ _ . ",
     help: "Un año que está entre 1980 y 1990.",
     difficulty: beginner_difficulty
@@ -592,7 +610,7 @@ Question.transaction do
   )
 
   # Pregunta 3
-  autocomplete_pri_3 = Autocomplete.create!( #id 24
+  autocomplete_pri_3 = Autocomplete.create!( 
     text: "El lenguaje de programación más utilizado en el desarrollo web es _ _ _ _ _ _ _ .",
     help: "Es un lenguaje hijo del lenguaje JAVA.",
     difficulty: beginner_difficulty
@@ -604,7 +622,7 @@ Question.transaction do
   )
 
   # Pregunta 4
-  autocomplete_pri_4 = Autocomplete.create!( #id 25
+  autocomplete_pri_4 = Autocomplete.create!( 
     text: "La arquitectura de computadoras se encarga del diseño y desarrollo del _ _ _ _ _ _ _ .",
     help: "Lo opuesto al SOFTWARE.",
     difficulty: beginner_difficulty
@@ -616,7 +634,7 @@ Question.transaction do
   )
 
   # Pregunta 5
-  autocomplete_pri_5 = Autocomplete.create!( #id 26
+  autocomplete_pri_5 = Autocomplete.create!( 
     text: "El sistema operativo más utilizado en dispositivos móviles es _ _ _ _ _ _ _ .",
     help: "Similar a la palabra ANDROIDE.",
     difficulty: beginner_difficulty
@@ -628,7 +646,7 @@ Question.transaction do
   )
 
   # Pregunta 6
-  autocomplete_pri_6 = Autocomplete.create!( #27
+  autocomplete_pri_6 = Autocomplete.create!( 
     text: "El lenguaje de programación creado por Guido van Rossum es _ _ _ _ _ _ _ .",
     help: "El lenguaje tiene el nombre de una víbora.",
     difficulty: beginner_difficulty
@@ -640,7 +658,7 @@ Question.transaction do
   )
 
   # Pregunta 7
-  autocomplete_pri_7 = Autocomplete.create!( #id 28
+  autocomplete_pri_7 = Autocomplete.create!( 
     text: "El algoritmo de ordenamiento más conocido y eficiente es _ _ _ _ _ _ _ .",
     help: "Ordenamiento rápido.",
     difficulty: beginner_difficulty
@@ -652,7 +670,7 @@ Question.transaction do
   )
 
   # Pregunta 8
-  autocomplete_pri_8 = Autocomplete.create!( #id 29
+  autocomplete_pri_8 = Autocomplete.create!( 
     text: "El sistema de gestión de bases de datos más popular es _ _ _ _ _ _ _ .",
     help: "Es un lenguaje de consulta.",
     difficulty: beginner_difficulty
@@ -664,7 +682,7 @@ Question.transaction do
   )
 
   # Pregunta 9
-  autocomplete_pri_9 = Autocomplete.create!( #id 30
+  autocomplete_pri_9 = Autocomplete.create!( 
     text: "El término utilizado para describir el conjunto de instrucciones ejecutadas por un ordenador es _ _ _ _ _ _ _ .",
     help: "Lo que se obtiene de la implementación de un algoritmo.",
     difficulty: beginner_difficulty
@@ -676,7 +694,7 @@ Question.transaction do
   )
 
   # Pregunta 10
-  autocomplete_pri_10 = Autocomplete.create!( #id 31
+  autocomplete_pri_10 = Autocomplete.create!( 
     text: "El proceso de convertir el código fuente en un programa ejecutable se conoce como _ _ _ _ _ _ _ .",
     help: "Similar a interpretación.",
     difficulty: beginner_difficulty
@@ -692,7 +710,7 @@ Question.transaction do
   # PREGUNTAS NIVEL EXPERTO (CHOICE)
 
   # Pregunta 1
-  choice_exp_1 = Choice.create!( #id 32
+  choice_exp_1 = Choice.create!( 
     text: "¿Cómo se llamó la primer computadora construida?",
     difficulty: difficult_difficulty
   )
@@ -722,7 +740,7 @@ Question.transaction do
   )
 
   # Pregunta 2
-  choice_exp_2 = Choice.create!( #id 33
+  choice_exp_2 = Choice.create!( 
     text: "¿Cuál de los siguientes lenguajes tiene NOCION DE ESTADO?",
     difficulty: difficult_difficulty
   )
@@ -752,7 +770,7 @@ Question.transaction do
   )
 
   # Pregunta 3
-  choice_exp_3 = Choice.create!( #id 34
+  choice_exp_3 = Choice.create!( 
     text: "¿Cuántos BITS hacen falta para representar 1 BYTE?",
     difficulty: difficult_difficulty
   )
@@ -782,7 +800,7 @@ Question.transaction do
   )
 
   # Pregunta 4
-  choice_exp_4 = Choice.create!( #id 35
+  choice_exp_4 = Choice.create!( 
     text: "¿Cuál es el mejor tiempo de ejecución para un algoritmo?",
     difficulty: difficult_difficulty
   )
@@ -801,7 +819,7 @@ Question.transaction do
 
   Answer.create!(
     question: choice_exp_4,
-    text: "Logaritmico",
+    text: "Logarítmico",
     correct: false
   )
 
@@ -812,7 +830,7 @@ Question.transaction do
   )
 
   # Pregunta 5
-  choice_exp_5 = Choice.create!( # id 36
+  choice_exp_5 = Choice.create!( 
     text: "¿Qué hace el algoritmo de Dijkstra?",
     difficulty: difficult_difficulty
   )
@@ -842,7 +860,7 @@ Question.transaction do
   )
 
   # Pregunta 6
-  choice_exp_6 = Choice.create!( #id 37
+  choice_exp_6 = Choice.create!( 
     text: "¿Cuál de los siguientes criterios tiene la prueba de CAJA BLANCA?",
     difficulty: difficult_difficulty
   )
@@ -872,7 +890,7 @@ Question.transaction do
   )
 
   # Pregunta 7
-  choice_exp_7 = Choice.create!( #id 38
+  choice_exp_7 = Choice.create!( 
     text: "¿Quién fue Alan Turing?",
     difficulty: difficult_difficulty
   )
@@ -901,7 +919,7 @@ Question.transaction do
     correct: false
   )
 
-  choice_exp_8 = Choice.create!( #id 39
+  choice_exp_8 = Choice.create!( 
     text: "¿Cuál de los siguientes lenguajes de programación es funcional?",
     difficulty: difficult_difficulty
   )
@@ -930,7 +948,7 @@ Question.transaction do
     correct: false
   )
 
-  choice_exp_9 = Choice.create!( # id 40
+  choice_exp_9 = Choice.create!( 
     text: "¿Cuál de las siguientes funciones describe la COMPLEJIDAD TEMPORAL del algoritmo de ordenamiento QuickSort?",
     difficulty: difficult_difficulty
   )
@@ -959,7 +977,7 @@ Question.transaction do
     correct: false
   )
 
-  choice_exp_10 = Choice.create!( #id 41
+  choice_exp_10 = Choice.create!( 
     text: "¿Cuál de los siguientes sistemas operativos no está basado en el núcleo Linux?",
     difficulty: difficult_difficulty
   )
@@ -988,7 +1006,7 @@ Question.transaction do
     correct: false
   )
 
-  choice_exp_11 = Choice.create!( #id 42
+  choice_exp_11 = Choice.create!( 
     text: "¿Cuál de los siguientes conceptos está relacionado con el principio SOLID?",
     difficulty: difficult_difficulty
   )
@@ -1020,7 +1038,7 @@ Question.transaction do
   #Preguntas nivel experto - TRUE FALSE
 
    # Pregunta 1
-  true_false_exp_1 = True_False.create!( #id 44
+  true_false_exp_1 = True_False.create!( 
     text: "El orden de evaluación del lenguaje Haskell es Orden Aplicativo.",
     difficulty: difficult_difficulty
   )
@@ -1038,7 +1056,7 @@ Question.transaction do
   )
 
   # Pregunta 2
-  true_false_exp_2 = True_False.create!( # id 45
+  true_false_exp_2 = True_False.create!( 
     text: "La estructura de datos ARREGLOS, tiene acceso secuencial y directo a sus elementos.",
     difficulty: difficult_difficulty
   )
@@ -1056,7 +1074,7 @@ Question.transaction do
   )
 
   # Pregunta 3
-  true_false_exp_3 = True_False.create!( #id 46
+  true_false_exp_3 = True_False.create!( 
     text: "La memoria RAM pierde toda su información almacenada cuando se apaga la computadora.",
     difficulty: difficult_difficulty
   )
@@ -1073,7 +1091,7 @@ Question.transaction do
     correct: false
   )
 
-  true_false_exp_4 = True_False.create!( #id 47
+  true_false_exp_4 = True_False.create!( 
     text: "El lenguaje de programación Python fue lanzado en la década de 1990.",
     difficulty: difficult_difficulty
   )
@@ -1090,7 +1108,7 @@ Question.transaction do
     correct: false
   )
 
-  true_false_exp_5 = True_False.create!( #id 48
+  true_false_exp_5 = True_False.create!( 
     text: "El algoritmo de BUSQUEDA BINARIA requiere que los elementos estén ordenados previamente.",
     difficulty: difficult_difficulty
   )
@@ -1107,7 +1125,7 @@ Question.transaction do
     correct: false
   )
 
-  true_false_exp_6 = True_False.create!( #id 49
+  true_false_exp_6 = True_False.create!( 
     text: "La red social Facebook fue lanzada originalmente para ser utilizada solo por estudiantes universitarios.",
     difficulty: difficult_difficulty
   )
@@ -1124,7 +1142,7 @@ Question.transaction do
     correct: false
   )
 
-  true_false_exp_7 = True_False.create!( #id 50
+  true_false_exp_7 = True_False.create!( 
     text: "El lenguaje de programación JAVA es una variante del lenguaje JavaScript.",
     difficulty: difficult_difficulty
   )
@@ -1141,8 +1159,8 @@ Question.transaction do
     correct: true
   )
 
-  true_false_exp_8 = True_False.create!( #id 51
-    text: "El sistema operativo macOS es desarrollado por Apple Inc.",
+  true_false_exp_8 = True_False.create!( 
+    text: "El sistema operativo Mac-OS es desarrollado por Apple Inc.",
     difficulty: difficult_difficulty
   )
 
@@ -1161,7 +1179,7 @@ Question.transaction do
   # Preguntas nivel experto - AUTOCOMPLETADO
 
   # Pregunta 1
-  autocomplete_exp_1 = Autocomplete.create!( #id 52
+  autocomplete_exp_1 = Autocomplete.create!( 
     text: "El primer sistema operativo de Microsoft se llamaba _ _ _ _ _ _ _ .",
     difficulty: difficult_difficulty
   )
@@ -1172,7 +1190,7 @@ Question.transaction do
   )
 
   # Pregunta 2
-  autocomplete_exp_2 = Autocomplete.create!( #id 53
+  autocomplete_exp_2 = Autocomplete.create!( 
     text: "El concepto de 'Internet de las Cosas' se refiere a la interconexión de _ _ _ _ _ _ _ .",
     difficulty: difficult_difficulty
   )
@@ -1182,7 +1200,7 @@ Question.transaction do
     answers_autocomplete: ["Dispositivos físicos", "dispositivos fisicos", "Dispositivos Físicos", "dispositivos físicos"]
   )
 
-  autocomplete_exp_3 = Autocomplete.create!( #id 54
+  autocomplete_exp_3 = Autocomplete.create!( 
     text: "El término 'Inteligencia Artificial' fue acuñado por _ _ _ _ _ _ _ en el año 1956.",
     difficulty: difficult_difficulty
   )
@@ -1192,7 +1210,7 @@ Question.transaction do
     answers_autocomplete: ["John McCarthy", "john mccarthy", "John Mccarthy", "john Mccarthy", "Mccarthy", "mccarthy"]
   )
 
-  autocomplete_exp_4 = Autocomplete.create!( #id 55
+  autocomplete_exp_4 = Autocomplete.create!( 
     text: "El primer lenguaje de programación de alto nivel fue _ _ _ _ _ _ _ .",
     difficulty: difficult_difficulty
   )
@@ -1202,7 +1220,7 @@ Question.transaction do
     answers_autocomplete: ["Fortran", "FORTRAN", "fortran"]
   )
 
-  autocomplete_exp_5 = Autocomplete.create!( #id 56
+  autocomplete_exp_5 = Autocomplete.create!( 
     text: "La arquitectura de computadoras fue propuesta por _ _ _ _ _ _ _ en el año 1945.",
     difficulty: difficult_difficulty
   )
@@ -1212,7 +1230,7 @@ Question.transaction do
     answers_autocomplete: ["Von Neumann", "von neumann", "Von neumann", "von Neumann", "vonneumann"]
   )
 
-  autocomplete_exp_6 = Autocomplete.create!( #id 57
+  autocomplete_exp_6 = Autocomplete.create!( 
     text: "El lenguaje de programación ORIENTADO A OBJETOS más utilizado actualmente es _ _ _ _ _ _ _ .",
     difficulty: difficult_difficulty
   )
@@ -1222,7 +1240,7 @@ Question.transaction do
     answers_autocomplete: ["Java", "JAVA", "java"]
   )
 
-  autocomplete_exp_7 = Autocomplete.create!( #id 58
+  autocomplete_exp_7 = Autocomplete.create!( 
     text: "El término 'Big Data' se refiere al manejo y análisis de conjuntos de datos extremadamente _ _ _ _ _ _ _ .",
     difficulty: difficult_difficulty
   )
@@ -1232,7 +1250,7 @@ Question.transaction do
     answers_autocomplete: ["grandes", "Grandes", "GRANDES"]
   )
 
-  autocomplete_exp_8 = Autocomplete.create!( #id 59
+  autocomplete_exp_8 = Autocomplete.create!( 
     text: "El lenguaje de programación Python fue creado por Guido Van _ _ _ _ _ _ _ en el año 1991.",
     difficulty: difficult_difficulty
   )
@@ -1242,7 +1260,7 @@ Question.transaction do
     answers_autocomplete: ["Rossum", "rossum", "ROSSUM"]
   )
 
-  autocomplete_exp_9 = Autocomplete.create!( #id 60
+  autocomplete_exp_9 = Autocomplete.create!( 
     text: "La empresa Microsoft fue fundada por Bill _ _ _ _ _ _ _ y Paul Allen en el año 1975.",
     difficulty: difficult_difficulty
   )
@@ -1253,7 +1271,7 @@ Question.transaction do
   )
 
   # Pregunta 3
-  autocomplete_exp_10 = Autocomplete.create!( #id 61
+  autocomplete_exp_10 = Autocomplete.create!( 
     text: "El primer teléfono inteligente con pantalla táctil fue el iPhone, lanzado por _ _ _ _ _ _ _ en el año 2007.",
     difficulty: difficult_difficulty
   )

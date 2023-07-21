@@ -5,15 +5,15 @@ describe Answer do
   # Solo se hicieron validaciones para question_id
   describe 'validations' do
 
-    it "is invalid whitout a question ID in answer for choice question" do
+    it "is invalid without a question ID in answer for choice question" do
       answer = Answer.new(text: "choice text", correct: false)
     end
 
-    it "is invalid whitout a question ID in answer for true-false question" do
+    it "is invalid without a question ID in answer for true-false question" do
       answer = Answer.new(text: "true-false text", correct: false)
     end
 
-    it "is invalid whitout a question ID in answer for autocomplete question" do
+    it "is invalid without a question ID in answer for autocomplete question" do
       answer = Answer.new(answers_autocomplete: ["elem 1", "elem 2", "elem n"])
     end
 

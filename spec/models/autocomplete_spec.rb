@@ -5,13 +5,13 @@ describe Autocomplete do
 
   describe 'validations' do
 
-    it "is invalid whitout a text" do
+    it "is invalid without a text" do
       beginner_difficulty = Difficulty.create!(level: :beginner)
       autocomplete = Autocomplete.new(difficulty: beginner_difficulty)
       expect(autocomplete.valid?).to eq(false)
     end
 
-    it "is invalid whitout a difficulty ID" do
+    it "is invalid without a difficulty ID" do
       autocomplete = Autocomplete.new(text: "autocomplete question?")
       expect(autocomplete.valid?).to eq(false)
     end 

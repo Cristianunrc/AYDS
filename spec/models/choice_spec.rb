@@ -5,13 +5,13 @@ describe Choice do
 
   describe 'validations' do
 
-    it "is invalid whitout a text" do
+    it "is invalid without a text" do
       beginner_difficulty = Difficulty.create!(level: :beginner)
       choice = Choice.new(difficulty: beginner_difficulty)
       expect(choice.valid?).to eq(false)
     end
 
-    it "is invalid whitout a difficulty ID" do
+    it "is invalid whithout a difficulty ID" do
       choice = Choice.new(text: "choice question?")
       expect(choice.valid?).to eq(false)
     end
