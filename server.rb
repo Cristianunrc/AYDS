@@ -283,7 +283,7 @@ class App < Sinatra::Application
     # Manejo de errores para el inicio de sesion de usuario
     if error_code == "login"
       if error_reason == "authenticate_failed"
-        @error_message = "El usuario o la contraseña no coinciden. Por favor, vuelva a intentearlo."
+        @error_message = "El usuario o la contraseña no coinciden. Por favor, vuelva a intentarlo."
       end
     end
 
