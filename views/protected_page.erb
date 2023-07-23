@@ -23,7 +23,7 @@
               <td><%= ranking.user.username %></td>
               <td><%= ranking.score %></td>
             </tr>
-          <% end %>
+          <% end %> <!-- end do-->
         </tbody>
       </table>
     </div>
@@ -52,7 +52,7 @@
   <h1>¡Hola <%= @username %>! Preparate . . .</h1>
   <p>¡Que el juego comience!</p>
   <form action="/trivia" method="post">
-    <h2>Seleccione la dificultad de la trivia para continuar:</h2>
+    <h2>Seleccione la dificultad de la trivia para continuar</h2>
     <div class="button-container">
       <button class="button" name="difficulty" value="beginner">Principiante</button>
       <button class="button" name="difficulty" value="difficult">Experto</button>
@@ -69,7 +69,7 @@
       var msgBox = document.createElement("div"); // se crea dinamicamente un elemento div
       msgBox.classList.add("message-box"); // se agrega la clase message-box al elemento div
       msgBox.innerHTML = `
-          <p>¿Estás seguro que deseas salir?</p>
+          <p>¿Estás seguro/a que deseas salir?</p>
           <button class="button" onclick="yesExit()">Si</button>
           <button class="button" onclick="noExit()">No</button>
         `;
@@ -80,13 +80,14 @@
     function yesExit() {
       window.location.href = "/";
     }
-
+    
+    // Si se elige "No", se quita el cuadro de dialogo permaneciendo en la misma página.
     function noExit() {
       var overlay = document.querySelector(".overlay");
       var msgContainer = document.querySelector(".msg-container");
       var msgBox = msgContainer.querySelector(".message-box");
-      document.body.removeChild(overlay); // se elimina el bloque de pantalla
-      msgContainer.removeChild(msgBox); // se elimina el cuadro de dialogo
+      document.body.removeChild(overlay); 
+      msgContainer.removeChild(msgBox);
     }
   </script>
   <form action="/reclamo" method="get">
