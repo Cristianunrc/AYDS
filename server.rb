@@ -149,6 +149,10 @@ class App < Sinatra::Application
       redirect '/protected_page'
     end
   end
+
+  get '/learnToGame' do
+    erb :learnToGame
+  end
     
   post '/trivia' do
     user = current_user

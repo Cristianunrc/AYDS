@@ -50,16 +50,23 @@
     </div>
   </div>
   <h1>¡Hola <%= @username %>! Preparate . . .</h1>
-  <p>¡Que el juego comience!</p>
+  <p>Elige algunas de las siguientes opciones</p>
+  <form action="/learnToGame" method="get">
+    <button type="submit">Aprende a jugar</button>
+  </form>
   <form action="/trivia" method="post">
-    <h2>Seleccione la dificultad de la trivia para continuar</h2>
     <div class="button-container">
       <button class="button" name="difficulty" value="beginner">Principiante</button>
       <button class="button" name="difficulty" value="difficult">Experto</button>
     </div>
   </form>
+  <form action="/reclamo" method="get">
+    <div class="claim-container">
+      <button type="submit">Hacer un reclamo</button>  
+    </div>
+  </form>
   <div class="msg-container">
-    <button class="button" id="logout-button" type="submit" onclick="showMsg()">Salir</button>
+    <button class="button" id="logout-button" type="submit" onclick="showMsg()">Cerrar sesión</button>
   </div>
   <script>
     function showMsg() {
@@ -90,10 +97,5 @@
       msgContainer.removeChild(msgBox);
     }
   </script>
-  <form action="/reclamo" method="get">
-    <div class="claim-container">
-      <button type="submit">Hacer un reclamo</button>  
-    </div>
-  </form>
 </body>
 </html>
