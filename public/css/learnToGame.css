@@ -20,7 +20,11 @@ h1 {
 h2 {
   font-size: 25px;
   color: #333;
-  text-align: center;
+  text-align: left;
+}
+
+h2 em {
+  color: #ff4c4c;
 }
 
 ol {
