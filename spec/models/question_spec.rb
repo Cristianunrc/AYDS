@@ -1,21 +1,22 @@
 require_relative '../../models/init.rb'
 require 'sinatra/activerecord'
 
-describe Choice do
+describe Question do
 
   describe 'validations' do
-
+    
     it "is invalid without a text" do
-      beginner_difficulty = Difficulty.create!(level: :beginner)
-      choice = Choice.new(difficulty: beginner_difficulty)
-      expect(choice.valid?).to eq(false)
+      beginner_difficulty = Difficulty.new(level: :beginner)
+      question = Question.new(difficulty_id: beginner_difficulty)
+      expect(question.valid?).to eq(false)
     end
 
     it "is invalid without a difficulty ID" do
-      choice = Choice.new(text: "choice question?")
-      expect(choice.valid?).to eq(false)
+      beginner_difficulty = Difficulty.new(level: :beginner)
+      question = Question.new(text: "question text?")
+      expect(question.valid?).to eq(false)
     end
-  
+
   end
 
   describe 'associations' do
@@ -25,7 +26,7 @@ describe Choice do
       expect(association.macro).to eq(:has_many)
     end
 
-    it "has many answers" do
+    it "has many answers through question_answers" do
       association = described_class.reflect_on_association(:answers)
       expect(association.macro).to eq(:has_many)
     end
@@ -36,5 +37,5 @@ describe Choice do
     end
 
   end
-
+  
 end
