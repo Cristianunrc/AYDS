@@ -69,10 +69,32 @@ button[type="button"] {
   width: 110px;
   position: relative;
   top: -45px;
-  right: -250px;
+  right: -210px;
 }
   
 button[type="button"]:hover {
   background-color: #ff8282;
   transform: translateY(-2px);
+}
+
+/* Botón para ver la contraseña */
+.password-container {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.show-password {
+  position: absolute;
+  cursor: pointer;
+  color: #007bff;
+  background-color: #f0f0f0;
+  padding: 1px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  top: 0px;
+  right: -46px;
+}
+
+.show-password:hover {
+  background-color: #ccc;
 }

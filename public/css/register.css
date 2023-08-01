@@ -32,8 +32,8 @@ label {
 }
 
 input[type="text"],
-input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
   padding: 8px;
   font-size: 17px;
   border: 1px solid #cccccc;
@@ -65,4 +65,23 @@ input[type="submit"]:hover {
 
 .form-group label {
   margin-right:10px;
+}
+
+/* Botón para ver la contraseña */
+.password-container {
+  position: relative;
+}
+
+.show-password {
+  position: absolute;
+  cursor: pointer;
+  color: #007bff;
+  background-color: #f0f0f0;
+  padding: 0px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.show-password:hover {
+  background-color: #ccc;
 }
