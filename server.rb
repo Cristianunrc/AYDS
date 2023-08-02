@@ -226,7 +226,7 @@ class App < Sinatra::Application
       elsif session[:answered_questions].include?(index)
         redirect '/error?code=answered'
       else
-        # Crear una nueva fila en la tabla QuestionAnswer con los IDs de la pregunta y la respuesta seleccionada
+        # Crear un nuevo registro en la tabla QuestionAnswer con los IDs de la pregunta y la respuesta seleccionada
         session[:answered_questions] << index # Agregar el índice de la pregunta respondida a la lista
         question_answer = QuestionAnswer.find_or_initialize_by(question_id: question.id, trivia_id: @trivia.id)
         if !selected_answer.nil?
@@ -334,7 +334,7 @@ class App < Sinatra::Application
         @score += 0
       end
 
-    end
+    end # end do
 
     # Logica para el ranking
     user = current_user
@@ -358,7 +358,7 @@ class App < Sinatra::Application
       @message_results = "¡Muy bien jugado! Felicitaciones"  
     end
 
-    erb :results, locals: { results: @results, score: @score, message_results: @message_results }
+    erb :results, locals: { results: @results, score: @score, message_results: @message_results}
     end
 
     private 

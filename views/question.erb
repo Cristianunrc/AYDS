@@ -110,11 +110,10 @@
       var display = $("#timer");
       startTimer(timeLimit, display);
     });
-
   </script>
 </head>
 <body>
-  <h1>Pregunta <%= @question_index + 1 %> :</h1>
+  <h1><em>Pregunta <%= @question_index + 1 %></em></h1>
   <% if @question %>
     <p><%= @question.text %></p>
     <% if @question.is_a?(Autocomplete) %>
@@ -136,31 +135,31 @@
            <div id="help-msg" style="display: none;"></div>
            <div id="messageAutocomplete-container"></div>
            <script>
-             // Funcion para mostrar un mensaje de ayuda
-             function showHelp(autocompleteText) {
-               var msg = document.getElementById("help-msg");
-               // se invoca la funcion desplegando el mensaje correspondiente
-               displayMessageAuto(autocompleteText);
-               // Si se da un click en el boton, se despliega un mensaje, si se vuelve a dar click, se oculta
-               if (msg.style.display === "none") {
-                 msg.style.display = "block";
-               } else {
-                   msg.style.display = "none";
-               }
-             }
-             // Funcion para mostrar el mensaje correspondiente al id de la question
-             function displayMessageAuto(message) {
-               var msgContainer = document.getElementById("messageAutocomplete-container");
-               msgContainer.textContent = message;
-             }
+              // Funcion para mostrar un mensaje de ayuda
+              function showHelp(autocompleteText) {
+                var msg = document.getElementById("help-msg");
+                // se invoca la funcion desplegando el mensaje correspondiente
+                displayMessageAuto(autocompleteText);
+                // Si se da un click en el boton, se despliega un mensaje, si se vuelve a dar click, se oculta
+                if (msg.style.display === "none") {
+                  msg.style.display = "block";
+                } else {
+                    msg.style.display = "none";
+                }
+              }
+              // Funcion para mostrar el mensaje correspondiente al id de la question
+              function displayMessageAuto(message) {
+                var msgContainer = document.getElementById("messageAutocomplete-container");
+                msgContainer.textContent = message;
+              }
            </script>
+        <% end %>   
         </div>
       </form>
-        <% end %>
-    <% else %>
+    <% else %> <!-- si la pregunta es choice o true-false -->
       <h2>Opciones:</h2>
       <form action="/answer/<%= @question_index %>" method="post" onsubmit="return validateForm()">
-      <input type="hidden" name="response_time" id="response_time" value="">
+        <input type="hidden" name="response_time" id="response_time" value="">
         <input type="hidden" name="trivia_id" value="<%= @trivia.id %>">
         <input type="hidden" name="question_index" value="<%= @question_index %>">
         <% @answers.each do |answer| %>
@@ -174,39 +173,39 @@
               <span class="answer-text"><%= answer.text %></span>
             </div>
           </label>
-    <% end %>
+        <% end %> <!-- en do -->
         <div id="timer-container" data-time-limit-seconds="<%= @time_limit_seconds %>">
           <span id="timer"></span>
         </div>
         <div class="button-container">
           <button type="submit">Siguiente pregunta</button>
           <!--Boton de ayuda para preguntas choices y true-falses -->
-          <%if @help%>
+          <% if @help %>
             <button type="button" onclick="showHelp('<%= @help %>')">¿Necesita una ayudita?</button>
             <div id="helpAux-msg" style="display: none;"></div>
             <div id="messageChoiceTF-container"></div>
             <script>
-             // Funcion para mostrar el mensaje de ayuda
-             function showHelp(choiceTrueFalseText) {
-               var msg = document.getElementById("helpAux-msg");
-               displayMessageCTF(choiceTrueFalseText);
-               if (msg.style.display === "none") {
-                 msg.style.display = "block";
-               } else {
-                   msg.style.display = "none";
-               }
-             }
+              // Funcion para mostrar el mensaje de ayuda
+              function showHelp(choiceTrueFalseText) {
+                var msg = document.getElementById("helpAux-msg");
+                displayMessageCTF(choiceTrueFalseText);
+                if (msg.style.display === "none") {
+                  msg.style.display = "block";
+                } else {
+                    msg.style.display = "none";
+                }
+              }
 
-            function displayMessageCTF(message) {
-              var msgContainer = document.getElementById("messageChoiceTF-container");
-              msgContainer.textContent = message;
-            }
-           </script>
+              function displayMessageCTF(message) {
+                var msgContainer = document.getElementById("messageChoiceTF-container");
+                msgContainer.textContent = message;
+              }
+            </script>
+          <% end %>
         </div>
       </form>
-      <% end %>
   <% end %>
-    <div id="message-box-container"></div>
+  <div id="message-box-container"></div>
     <script>
       function showTimeUpMessage() {
         var overlay = document.createElement("div");
@@ -234,9 +233,9 @@
         });
       }
 
-     function nextQuestion() {
+      function nextQuestion() {
        document.querySelector("form").submit();
-     }
+      }
    </script>
   <% else %>
     <h2>No se encontró la pregunta</h2>
