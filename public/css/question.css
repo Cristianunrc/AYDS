@@ -21,6 +21,7 @@ p {
   font-size: 26px;
   margin-bottom: 20px;
   color: #333;
+  text-align: left;
 }
 
 h2 {
@@ -32,6 +33,7 @@ h2 {
 .answer-container {
   display: flex;
   align-items: center;
+  text-align: left;
   margin-bottom: 20px;
   cursor: pointer;
   padding: 15px;
@@ -178,7 +180,7 @@ button:hover {
 
 .q-autocomplete-input {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   border-radius: 4px;
   margin-bottom: 10px;
   width: 400px;
@@ -189,8 +191,6 @@ button:hover {
 }
 
 /* Resto de estilos del recuadro de respuesta */
-
-
 .q-autocomplete-input:focus {
   outline: none;
 }
