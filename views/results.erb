@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="container">      
-      <h1><%= @message_results %> <%= @user.username %>.</h1>
+      <h1><%= @message_results %> <em><%= @user.username %></em>.</h1>
       <h2>Resultado total:</h2>
       <% @results.each do |result| %>
         <% @idx += 1 %>

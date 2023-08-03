@@ -364,14 +364,12 @@ class App < Sinatra::Application
     private 
     def calculate_response_time_score(response_time, response_time_limit)
       max_score = 10 # puntuación máxima de 10 puntos para una respuesta correcta
-
       # Si el nivel es 'beginner', se resta 1 pto por cada 5 segundo que se tarda en responder
       if response_time_limit == 35
         points_to_subtract = [(response_time / 5).ceil, 3].min
       else # Si el nivel no es 'beginner', se resta 1 pto por cada 4 segundos que se tarda en responder
       points_to_subtract = [(response_time / 4).ceil, 3].min
       end
-
       # Se calcula la puntuacion final y se asegura de que este en el rango entre 0 y max_score
       final_score = max_score - points_to_subtract
       final_score.clamp(0, max_score)
