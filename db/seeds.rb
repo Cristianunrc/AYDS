@@ -439,8 +439,8 @@ Question.transaction do
 
   # Pregunta 3
   true_false_pri_3 = True_False.create!( 
-    text: "La libreria stdio.h (standar input output), generalmente se la incluye en programas basados en lenguaje C.",
-    help: "Utilización de funciones como: scanf y printf.",
+    text: "Un prototipo es una representación de un futuro producto tecnológico.",
+    help: "Cuando se desarrolla un avión, es muy útil crear prototipos.",
     difficulty: beginner_difficulty
   )
 
@@ -566,7 +566,7 @@ Question.transaction do
   )
 
   true_false_pri_10 = True_False.create!( 
-    text: "El disco duro de una computadora forma parte de su HARDWARE.",
+    text: "El disco duro forma parte del HARDWARE de una computadora.",
     help: "El hardware está formado por los componentes físicos de una computadora.",
     difficulty: beginner_difficulty
   )
@@ -647,14 +647,14 @@ Question.transaction do
 
   # Pregunta 6
   autocomplete_pri_6 = Autocomplete.create!( 
-    text: "El lenguaje de programación creado por Guido van Rossum es _ _ _ _ _ _ _ .",
-    help: "El lenguaje tiene el nombre de una víbora.",
+    text: "La RAM (Random Acces Memory) es la memoria _ _ _ _ _ _ _ de una computadora.",
+    help: "Palabra que está entre primaria y terciaria.",
     difficulty: beginner_difficulty
   )
 
   Answer.create!(
     question: autocomplete_pri_6,
-    answers_autocomplete: ["Python", "python"]
+    answers_autocomplete: ["secundaria", "Secundaria", "SECUNDARIA"]
   )
 
   # Pregunta 7
@@ -1092,7 +1092,7 @@ Question.transaction do
   )
 
   true_false_exp_4 = True_False.create!( 
-    text: "El lenguaje de programación Python fue lanzado en la década de 1990.",
+    text: "El lenguaje HTML es el lenguaje estándar en el desarrollo de aplicaciones web.",
     difficulty: difficult_difficulty
   )
 
@@ -1251,13 +1251,13 @@ Question.transaction do
   )
 
   autocomplete_exp_8 = Autocomplete.create!( 
-    text: "El lenguaje de programación Python fue creado por Guido Van _ _ _ _ _ _ _ en el año 1991.",
+    text: "El lenguaje _ _ _ _ _ es el más popular para el desarrollo FRONT-END en aplicaciones web.",
     difficulty: difficult_difficulty
   )
 
   Answer.create!(
     question: autocomplete_exp_8,
-    answers_autocomplete: ["Rossum", "rossum", "ROSSUM"]
+    answers_autocomplete: ["HTML", "html", "Html"]
   )
 
   autocomplete_exp_9 = Autocomplete.create!( 
