@@ -7,10 +7,9 @@
   <script src="/js/jquery-3.6.0.js"></script>
   <!-- Código JavaScript para manejar la validación de la selección de respuesta -->
   <script>
-     function validateForm() {
+    function validateForm() {
       var selectedOption = document.querySelector('input[name="selected_answer"]:checked');
       var timeRemaining = parseInt($('#timer').text());
-
       if (!selectedOption && timeRemaining > 0) {
         // Si no se seleccionó ninguna opción y todavía hay tiempo restante, mostrar mensaje de alerta
         showMessage("Debe seleccionar una respuesta antes de continuar.");
@@ -22,7 +21,6 @@
       }
       // Obtener el tiempo restante del temporizador
       var timeRemaining = parseInt($('#timer').text());
-
       // Establecer el tiempo de respuesta en el campo oculto
       $('#response_time').val(timeRemaining);
       return true;
@@ -223,10 +221,11 @@
         var entendidoBtn = document.getElementById("entendido-btn");
         entendidoBtn.addEventListener("click", function () {
           var autocompleteInput = document.getElementById("autocomplete-input");
-          if (autocompleteInput) {
+          var selectedOption = document.querySelector('input[name="selected_answer"]:checked');
+          if (autocompleteInput) { 
             autocompleteInput.value = null;
           } else {
-            document.querySelector('input[name="selected_answer"]').value = null;
+            selectedOption.checked = false;
           }
           overlay.remove();
           nextQuestion();
