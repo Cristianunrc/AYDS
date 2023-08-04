@@ -243,13 +243,13 @@ class App < Sinatra::Application
         end
 
         total_time = @trivia.difficulty == "beginner" ? 35 : 20
-        response_time = total_time - params[:response_time].to_i
-        question_answer&.update(response_time: response_time)
+        var_response_time = total_time - params[:response_time].to_i
+        question_answer&.update(response_time: var_response_time)
         next_index = index + 1
         redirect "/question/#{next_index}"
       end
     end
-  end
+  end # end post
 
   get '/error' do
     error_code = params[:code]
