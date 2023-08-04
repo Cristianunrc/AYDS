@@ -18,6 +18,10 @@ p {
   color: #333;
 }
 
+p em {
+  color: #ff4c4c;
+}
+
 /* Cuadro de texto para el reclamo */
 textarea[type="text"] {
   padding: 8px;
