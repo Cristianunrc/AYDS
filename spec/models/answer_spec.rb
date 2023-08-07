@@ -2,19 +2,22 @@ require_relative '../../models/init.rb'
 require 'sinatra/activerecord'
 
 describe Answer do
-  # Solo se hicieron validaciones para question_id
+  # Solo se hacen validaciones para question_id
   describe 'validations' do
 
     it "is invalid without a question ID in answer for choice question" do
       answer = Answer.new(text: "choice text", correct: false)
+      expect(answer.valid?).to eq(false)
     end
 
     it "is invalid without a question ID in answer for true-false question" do
       answer = Answer.new(text: "true-false text", correct: false)
+      expect(answer.valid?).to eq(false)
     end
 
     it "is invalid without a question ID in answer for autocomplete question" do
       answer = Answer.new(answers_autocomplete: ["elem 1", "elem 2", "elem n"])
+      expect(answer.valid?).to eq(false)
     end
 
   end
