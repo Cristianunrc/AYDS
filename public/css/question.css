@@ -61,29 +61,6 @@ h2 {
   margin-right: 20px;
 }
 
-.button-container button {
-  margin-left: 60px;
-}
-
-button {
-  background-color:  #ffdf59;
-  border: 1px solid #333;
-  border-radius: 4px;
-  color: #333;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 10px 20px;
-  margin-right: 5px;
-  box-shadow: none;
-  transition: none;
-}
-
-/* Aplica cuando se pasa el puntero por encima del boton*/
-button:hover {
-  background-color: #ffde59b3;
-  transform: translateY(-2px);
-}
-
 #timer-container {
   position: fixed;
   top: 20px;
@@ -136,24 +113,6 @@ button:hover {
   border: 1px solid #000000;
   padding: 20px;
   text-align: center;
-}
-
-.message-text {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.message-button {
-  background-color: #fff;
-  border: 1px solid #333;
-  border-radius: 4px;
-  color: #333;
-  cursor:pointer;
-  font-size: 16px;
-  padding: 10px 20px;
-  margin-right: 5px;
-  box-shadow:none;
-  transition:none;
 }
 
 .button-style {
@@ -216,30 +175,15 @@ button[type="submit"]:hover {
   background-color: #caff85;
 }
 
-/* Texto para mensaje de ayuda de autocompletado */
-#messageAutocomplete-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  background-color: #4CAF50;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 24px;
+/* Estilo para el mensaje de ayuda */
+.help-container p {
+  font-size: 22px;
+  color: #333;
   text-align: center;
+  margin-top: 35px;
 }
 
-/* Texto para mensaje de ayuda de opciones múltiples y verdadero/falso */
-#messageChoiceTF-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  background-color: #4CAF50;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 24px;
-  text-align: center;
+.help-container p em {
+  color: red;
+  text-decoration: underline;
 }

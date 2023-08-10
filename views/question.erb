@@ -127,31 +127,12 @@
           <span id="timer"></span>
         </div>
         <div class="button-container">
-          <button type="submit">Siguiente pregunta</button>
-         <% if @help %>
-           <button type="button" onclick="showHelp('<%= @help %>')">¿Necesita una ayudita?</button>
-           <div id="help-msg" style="display: none;"></div>
-           <div id="messageAutocomplete-container"></div>
-           <script>
-              // Funcion para mostrar un mensaje de ayuda
-              function showHelp(autocompleteText) {
-                var msg = document.getElementById("help-msg");
-                // se invoca la funcion desplegando el mensaje correspondiente
-                displayMessageAuto(autocompleteText);
-                // Si se da un click en el boton, se despliega un mensaje, si se vuelve a dar click, se oculta
-                if (msg.style.display === "none") {
-                  msg.style.display = "block";
-                } else {
-                    msg.style.display = "none";
-                }
-              }
-              // Funcion para mostrar el mensaje correspondiente al id de la question
-              function displayMessageAuto(message) {
-                var msgContainer = document.getElementById("messageAutocomplete-container");
-                msgContainer.textContent = message;
-              }
-           </script>
-        <% end %>   
+          <button type="submit">Siguiente pregunta</button>   
+        </div>
+        <div class="help-container">
+          <% if @help %> <!-- ayuda para pregunta autocompletado principiante -->
+            <p><em>AYUDA</em>: <%= @help %></p>
+          <% end %>
         </div>
       </form>
     <% else %> <!-- si la pregunta es choice o true-false -->
@@ -177,65 +158,46 @@
         </div>
         <div class="button-container">
           <button type="submit">Siguiente pregunta</button>
-          <!--Boton de ayuda para preguntas choices y true-falses -->
-          <% if @help %>
-            <button type="button" onclick="showHelp('<%= @help %>')">¿Necesita una ayudita?</button>
-            <div id="helpAux-msg" style="display: none;"></div>
-            <div id="messageChoiceTF-container"></div>
-            <script>
-              // Funcion para mostrar el mensaje de ayuda
-              function showHelp(choiceTrueFalseText) {
-                var msg = document.getElementById("helpAux-msg");
-                displayMessageCTF(choiceTrueFalseText);
-                if (msg.style.display === "none") {
-                  msg.style.display = "block";
-                } else {
-                    msg.style.display = "none";
-                }
-              }
-
-              function displayMessageCTF(message) {
-                var msgContainer = document.getElementById("messageChoiceTF-container");
-                msgContainer.textContent = message;
-              }
-            </script>
+        </div>
+        <div class="help-container">
+          <% if @help %> <!-- ayuda para preguntas choice y true-false principiantes -->
+            <p><em>AYUDA</em>: <%= @help%></p>
           <% end %>
         </div>
       </form>
   <% end %>
-  <div id="message-box-container"></div>
-    <script>
-      function showTimeUpMessage() {
-        var overlay = document.createElement("div");
-        overlay.classList.add("overlay");
-        var messageContainer = document.createElement("div");
-        messageContainer.classList.add("message-container");
-        messageContainer.innerHTML = `
-          <div class="message-box">
-            <p>Se terminó el tiempo, respuesta marcada como incorrecta!</p>
-            <button id="entendido-btn" class="button-style" onclick="nextQuestion()">Entendido</button>
-          </div>
-        `;
-        overlay.appendChild(messageContainer);
-        document.body.appendChild(overlay);
-        var entendidoBtn = document.getElementById("entendido-btn");
-        entendidoBtn.addEventListener("click", function () {
-          var autocompleteInput = document.getElementById("autocomplete-input");
-          var selectedOption = document.querySelector('input[name="selected_answer"]:checked');
-          if (autocompleteInput) { 
-            autocompleteInput.value = null;
-          } else {
+  <script>
+    function showTimeUpMessage() {
+      var overlay = document.createElement("div");
+      overlay.classList.add("overlay");
+      var messageContainer = document.createElement("div");
+      messageContainer.classList.add("message-container");
+      messageContainer.innerHTML = `
+        <div class="message-box">
+          <p>Se terminó el tiempo, respuesta marcada como incorrecta!</p>
+          <button id="entendido-btn" class="button-style" onclick="nextQuestion()">Entendido</button>
+        </div>
+      `;
+      overlay.appendChild(messageContainer);
+      document.body.appendChild(overlay);
+      var entendidoBtn = document.getElementById("entendido-btn");
+      entendidoBtn.addEventListener("click", function () {
+        var autocompleteInput = document.getElementById("autocomplete-input");
+        var selectedOption = document.querySelector('input[name="selected_answer"]:checked');
+        if (autocompleteInput) { 
+          autocompleteInput.value = null;
+        } else {
             selectedOption.checked = false;
           }
-          overlay.remove();
-          nextQuestion();
-        });
-      }
+        overlay.remove();
+        nextQuestion();
+      });
+    }
 
-      function nextQuestion() {
-       document.querySelector("form").submit();
-      }
-   </script>
+    function nextQuestion() {
+      document.querySelector("form").submit();
+    }
+  </script>
   <% else %>
     <h2>No se encontró la pregunta</h2>
   <% end %>
