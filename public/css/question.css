@@ -178,9 +178,11 @@ button[type="submit"]:hover {
 /* Estilo para el mensaje de ayuda */
 .help-container p {
   font-size: 22px;
+  font-weight: bold;
   color: #333;
   text-align: center;
   margin-top: 35px;
+  justify-content: center;
 }
 
 .help-container p em {
