@@ -80,6 +80,7 @@ input[type="submit"]:hover {
   padding: 0px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  height: 35px;
 }
 
 .show-password:hover {
