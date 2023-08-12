@@ -80,13 +80,10 @@ class App < Sinatra::Application
     password = params[:password]
     confirm_password = params[:confirm_password]
 
-    # Verificar si las contraseñas coinciden
-    if password == confirm_password
-      # Verificar si el username ya está en uso
-      if User.exists?(username: username)
+    if password == confirm_password # se verifica si los passwords coinciden
+      if User.exists?(username: username) # se verifica si el nombre de usuario ya existe en la BD
         redirect "/error?code=registration&reason=username_taken"
-      # Verificar si el email ya está en uso
-      elsif User.exists?(email: email)
+      elsif User.exists?(email: email) # se verifica si el email ya existe en la base de datos
         redirect "/error?code=registration&reason=email_taken"
       else
         # Crear un nuevo registro en la base de datos
@@ -107,12 +104,8 @@ class App < Sinatra::Application
     # Obtener los datos del formulario
     username = params[:username]
     password = params[:password]
-
-    # Buscar al usuario en la tabla User
-    user = User.find_by(username: username)
-
-    # Verificar si el usuario existe y si la contraseña es correcta
-    if user && user.authenticate(password)
+    user = User.find_by(username: username) # En la tabla User se busca un registro con el nombre del usuario
+    if user && user.authenticate(password) # si user existe y el password es correcto
       session[:user_id] = user.id # El id del usuario se almacena en la session
       redirect '/protected_page'
     else
