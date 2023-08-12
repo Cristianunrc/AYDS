@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Error</title>
+  <title>Trivia | Error</title>
   <link rel="stylesheet" type="text/css" href="/css/error.css">
 </head>
 <body>
   <h1>Error</h1>
   <% if params[:code] == "unanswered" || params[:code] == "answered" %>
-    <p> <%= @error_message %> </p>
+    <p><%= @error_message %></p>
     <p>Será redirigido para comenzar una nueva trivia.</p>
   <% elsif params[:code] == "registration" %>
       <% if params[:reason] == "password_mismatch" || params[:reason] == "registration_error" ||
             params[:reason] == "email_taken" || params[:reason] == "username_taken" %>
-            <p>Ha ocurrido un error durante el registro: <%= @error_message %></p>
+            <p><%= @error_message %></p>
       <% else %>
         <p>Ha ocurrido un error durante el registro.</p>
         <p>Vuelva a intentarlo más tarde.</p>
       <% end %>
   <% elsif params[:code] == "login" %>
       <% if params[:reason] == "authenticate_failed" %>
-        <p> <%= @error_message %> </p>
+        <p><%= @error_message %></p>
       <% end %>
   <% else %>
     <p>Ha ocurrido un error.</p>
